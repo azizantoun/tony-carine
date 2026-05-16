@@ -142,12 +142,34 @@
 
     .section {
       width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
       min-height: 100vh;
       position: relative;
       padding: 3rem 0;
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    /* Mobile: snap each section as its own page */
+    @media (max-width: 768px) {
+      html { scroll-snap-type: y mandatory; }
+      .section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        padding: 1.5rem 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+    }
+
+    /* Desktop: a little more breathing room around the card column */
+    @media (min-width: 769px) {
+      .section { padding: 4rem 0; }
     }
     .sec-divider {
       width: 100%;
@@ -815,15 +837,32 @@
     document.getElementById('gcg').style.display = this.value === 'no' ? 'none' : 'flex';
   });
 
-  /* ── RSVP submit ── */
+  /* ── RSVP submit ──
+     Posts to a Google Apps Script web app that appends a row to a sheet
+     and emails azizantoun@gmail.com. Replace the URL below with the one
+     produced when you "Deploy → New deployment → Web app". */
+  const RSVP_ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+
   document.getElementById('rsvp-form').addEventListener('submit', function(e) {
     e.preventDefault();
+    const form = this;
     const btn = document.getElementById('subbtn');
     btn.disabled = true; btn.textContent = 'Sending…';
-    setTimeout(() => {
-      this.style.display = 'none';
+
+    const data = new FormData(form);
+    data.append('submitted_at', new Date().toISOString());
+
+    fetch(RSVP_ENDPOINT, {
+      method: 'POST',
+      body: data,
+      mode: 'no-cors'
+    }).then(() => {
+      form.style.display = 'none';
       document.getElementById('rsuccess').classList.add('visible');
-    }, 1200);
+    }).catch(() => {
+      btn.disabled = false;
+      btn.textContent = 'Try again';
+    });
   });
 
   /* ── Rising eucalyptus leaves ── */
