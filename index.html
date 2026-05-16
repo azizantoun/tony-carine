@@ -18,7 +18,7 @@
 
     body {
       background-color: #f0f4f1;
-      background-image: url('https://evantocards.com/sites/default/files/event/cover/c604-background.jpg');
+      background-image: url('C604 Background.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -28,7 +28,7 @@
     .bc {
       position: fixed;
       pointer-events: none;
-      z-index: 5;
+      z-index: 2;
     }
     .bc-tl {
       top: 0; left: 0;
@@ -69,7 +69,7 @@
     #petals {
       position: fixed; inset: 0;
       pointer-events: none;
-      z-index: 4;
+      z-index: 2;
       overflow: hidden;
     }
     .petal {
@@ -100,19 +100,32 @@
     }
     #splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
+    .splash-logo {
+      width: clamp(160px, 45vw, 240px);
+      height: auto;
+      margin-bottom: 1.8rem;
+    }
+    .splash-invite {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.9rem, 2.6vw, 1.1rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #4a6040;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
     .splash-name {
       font-family: 'Alex Brush', cursive;
-      font-size: clamp(3.8rem, 18vw, 6rem);
+      font-size: clamp(3.2rem, 14vw, 5.2rem);
       color: #1c1c1c;
-      line-height: 1.05;
+      line-height: 1.1;
     }
     .splash-amp {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 4.5vw, 1.7rem);
+      font-size: 0.35em;
       font-weight: 300;
       color: #4a6840;
-      display: block;
-      margin: 0.3rem 0;
+      margin: 0 0.3em;
     }
     .tap-btn {
       margin-top: 3rem;
@@ -154,16 +167,11 @@
 
     /* Mobile: snap each section as its own page */
     @media (max-width: 768px) {
-      html { scroll-snap-type: y mandatory; }
+      html { scroll-snap-type: y proximity; }
       .section {
         scroll-snap-align: start;
-        scroll-snap-stop: always;
-        height: 100vh;
         min-height: 100vh;
-        max-height: 100vh;
         padding: 1.5rem 0;
-        overflow-y: auto;
-        overscroll-behavior: contain;
       }
     }
 
@@ -189,7 +197,7 @@
       align-items: center;
       padding: 0 1.6rem;
       position: relative;
-      z-index: 1;
+      z-index: 3;
     }
 
     /* ══════════════════════════════
@@ -537,16 +545,16 @@
 <div id="petals"></div>
 
 <!-- botanical corners using real CDN images -->
-<div class="bc bc-tl"><img src="https://evantocards.com/sites/default/files/media_assets/c604-left-leaf-1.png" alt="" /></div>
-<div class="bc bc-br"><img src="https://evantocards.com/sites/default/files/media_assets/c604-left-leaf-1.png" alt="" /></div>
-<div class="bc bc-bl"><img src="https://evantocards.com/sites/default/files/media_assets/c604-right-leaf-1.png" alt="" /></div>
-<div class="bc bc-tr"><img src="https://evantocards.com/sites/default/files/media_assets/c604-right-leaf-1.png" alt="" /></div>
+<div class="bc bc-tl"><img src="C604 Left Leaf.png" alt="" /></div>
+<div class="bc bc-br"><img src="C604 Left Leaf.png" alt="" /></div>
+<div class="bc bc-bl"><img src="C604 Right Leaf.png" alt="" /></div>
+<div class="bc bc-tr"><img src="C604 Right Leaf.png" alt="" /></div>
 
 <!-- ════════════════ SPLASH ════════════════ -->
 <div id="splash">
-  <p class="splash-name">Tony</p>
-  <span class="splash-amp">&amp;</span>
-  <p class="splash-name">Carine</p>
+  <img src="logo.png" alt="T &amp; C" class="splash-logo" />
+  <p class="splash-invite">You are invited to celebrate the wedding of</p>
+  <p class="splash-name">Tony <span class="splash-amp">&amp;</span> Carine</p>
   <button class="tap-btn" id="tap-start">Tap to start</button>
 </div>
 
@@ -556,39 +564,13 @@
     <!-- ── Section 0: Save the Date ── -->
     <section class="section">
       <!-- watercolor title pattern overlay -->
-      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
+      <img class="title-ptrn" src="Title Pattern 1.svg" alt="" />
       <div class="si" style="padding-top:0;">
         <p class="s0-label">Save the Date</p>
 
         <!-- T&C monogram -->
         <div class="monogram-wrap">
-          <svg viewBox="0 0 300 310" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <!-- Full thin circle -->
-            <circle cx="158" cy="145" r="118" stroke="#1a1a1a" stroke-width="1.1" fill="none"/>
-            <!-- T — large serif, upper-left -->
-            <text x="44" y="188" font-family="Cormorant Garamond,serif" font-size="152" font-weight="400" fill="#1a1a1a">T</text>
-            <!-- C — large serif, lower-right -->
-            <text x="162" y="230" font-family="Cormorant Garamond,serif" font-size="118" font-weight="400" fill="#1a1a1a">C</text>
-            <!-- & — cursive, diagonal across centre -->
-            <text x="104" y="218" font-family="Pinyon Script,cursive" font-size="140" fill="#1a1a1a" transform="rotate(-8 104 218)">&#38;</text>
-            <!-- Olive branch — lower-left, extends out of circle -->
-            <g transform="translate(52,252) rotate(-42)">
-              <!-- main stem -->
-              <path d="M0 0 C2-8 5-17 9-27 C13-37 17-50 22-62" stroke="#2a2a2a" stroke-width="1.0" fill="none"/>
-              <!-- right-side leaves (alternating) -->
-              <ellipse cx="6"  cy="-14" rx="9"  ry="3.4" fill="none" stroke="#2a2a2a" stroke-width="0.85" transform="rotate(38 6 -14)"/>
-              <ellipse cx="13" cy="-30" rx="10" ry="3.8" fill="none" stroke="#2a2a2a" stroke-width="0.85" transform="rotate(35 13 -30)"/>
-              <ellipse cx="18" cy="-46" rx="9"  ry="3.4" fill="none" stroke="#2a2a2a" stroke-width="0.85" transform="rotate(32 18 -46)"/>
-              <!-- left-side leaves -->
-              <ellipse cx="-1" cy="-21" rx="8.5" ry="3.2" fill="none" stroke="#2a2a2a" stroke-width="0.85" transform="rotate(-42 -1 -21)"/>
-              <ellipse cx="5"  cy="-38" rx="9"  ry="3.4" fill="none" stroke="#2a2a2a" stroke-width="0.85" transform="rotate(-38 5 -38)"/>
-              <ellipse cx="10" cy="-54" rx="8"  ry="3.0" fill="none" stroke="#2a2a2a" stroke-width="0.85" transform="rotate(-34 10 -54)"/>
-              <!-- tiny berries at tip -->
-              <circle cx="20" cy="-60" r="2.0" fill="none" stroke="#2a2a2a" stroke-width="0.8"/>
-              <circle cx="24" cy="-64" r="1.7" fill="none" stroke="#2a2a2a" stroke-width="0.8"/>
-              <circle cx="16" cy="-63" r="1.7" fill="none" stroke="#2a2a2a" stroke-width="0.8"/>
-            </g>
-          </svg>
+          <img src="logo.png" alt="T &amp; C Monogram" style="width:100%;height:100%;object-fit:contain;" />
         </div>
 
         <p class="s0-month">August</p>
@@ -629,7 +611,7 @@
 
     <!-- ── Slide 1: The Gathering ── -->
     <section class="section">
-      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
+      <img class="title-ptrn" src="Title Pattern 1.svg" alt="" />
       <div class="si" style="justify-content:flex-start;">
         <div class="sec-head">
           <span class="sec-pre">Before the Celebration</span>
@@ -662,7 +644,7 @@
 
     <!-- ── Slide 2: The Celebration ── -->
     <section class="section">
-      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
+      <img class="title-ptrn" src="Title Pattern 1.svg" alt="" />
       <div class="si" style="justify-content:flex-start;">
         <div class="sec-head">
           <span class="sec-pre">August 1, 2026</span>
@@ -697,7 +679,7 @@
 
     <!-- ── Slide 3: Countdown ── -->
     <section class="section">
-      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
+      <img class="title-ptrn" src="Title Pattern 1.svg" alt="" />
       <div class="si" style="justify-content:center;text-align:center;">
         <div class="sec-head">
           <span class="sec-pre">Counting Down</span>
@@ -717,7 +699,7 @@
 
     <!-- ── Slide 4: Gift Registry ── -->
     <section class="section">
-      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
+      <img class="title-ptrn" src="Title Pattern 1.svg" alt="" />
       <div class="si" style="justify-content:flex-start;">
         <div class="sec-head">
           <span class="sec-pre">Gift Registry</span>
@@ -740,7 +722,7 @@
 
     <!-- ── Slide 5: RSVP ── -->
     <section class="section">
-      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
+      <img class="title-ptrn" src="Title Pattern 1.svg" alt="" />
       <div class="si" style="justify-content:flex-start;">
         <div class="sec-head">
           <span class="sec-pre">Kindly Respond By July 1, 2026</span>
