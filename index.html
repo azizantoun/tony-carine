@@ -833,13 +833,14 @@
     const btn = document.getElementById('subbtn');
     btn.disabled = true; btn.textContent = 'Sending…';
 
-    const data = new FormData(form);
+    const data = new URLSearchParams(new FormData(form));
     data.append('submitted_at', new Date().toISOString());
 
     fetch(RSVP_ENDPOINT, {
       method: 'POST',
       body: data,
-      mode: 'no-cors'
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     }).then(() => {
       form.style.display = 'none';
       document.getElementById('rsuccess').classList.add('visible');
