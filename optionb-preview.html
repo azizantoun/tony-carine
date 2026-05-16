@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <title>Option B Preview — Tony &amp; Carine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Pinyon+Script&family=Alex+Brush&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      width: 100%;
+      min-height: 100%;
+      font-family: 'Cormorant Garamond', serif;
+      color: #1c1c1c;
+      scroll-behavior: smooth;
+    }
+    body {
+      width: 100%;
+      min-height: 100%;
+      font-family: 'Cormorant Garamond', serif;
+      color: #1c1c1c;
+      font-size: 1.2rem;
+    }
+    html.locked, body.locked { overflow: hidden; height: 100%; }
+
+    body {
+      background-color: #f0f4f1;
+      background-image: url('C604 Background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* ── BOTANICAL CORNERS ── */
+    .bc {
+      position: fixed;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .bc-tl {
+      top: 0; left: 0;
+      width: clamp(160px, 46vw, 260px);
+    }
+    .bc-br {
+      bottom: 0; right: 0;
+      width: clamp(140px, 42vw, 240px);
+      transform: rotate(180deg);
+    }
+    .bc-bl {
+      bottom: 0; left: 0;
+      width: clamp(90px, 24vw, 140px);
+      transform: scaleX(-1);
+      opacity: 0.55;
+    }
+    .bc-tr {
+      top: 0; right: 0;
+      width: clamp(90px, 24vw, 140px);
+      transform: scaleY(-1);
+      opacity: 0.50;
+    }
+    .bc img { width: 100%; display: block; }
+
+    /* ── WATERCOLOR TITLE PATTERN ── */
+    .title-ptrn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 520px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+
+    /* ── PETALS ── */
+    #petals {
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      overflow: hidden;
+      opacity: 0.7;
+    }
+    .petal {
+      position: absolute;
+      bottom: -60px;
+      animation: leafRise linear infinite;
+      opacity: 0;
+    }
+    @keyframes leafRise {
+      0%   { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+      8%   { opacity: 0.72; }
+      88%  { opacity: 0.36; }
+      100% { transform: translateY(-110vh) rotate(var(--spin)) translateX(var(--drift)); opacity: 0; }
+    }
+
+    /* ── AUDIO ── */
+    #bg-music { display: none; }
+
+    /* ══════════════════════════════
+       SPLASH
+    ══════════════════════════════ */
+    #splash {
+      position: fixed; inset: 0; z-index: 100;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 2rem;
+      transition: opacity 0.85s ease, visibility 0.85s ease;
+    }
+    #splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    .splash-logo {
+      width: clamp(360px, 55vw, 440px);
+      height: auto;
+      margin-bottom: 1.8rem;
+    }
+    .splash-invite {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.02rem, 2.9vw, 1.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #4a6040;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+    .splash-name {
+      font-family: 'Alex Brush', cursive;
+      font-size: clamp(3.2rem, 14vw, 5.2rem);
+      color: #1c1c1c;
+      line-height: 1.1;
+    }
+    .splash-amp {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.35em;
+      font-weight: 300;
+      color: #4a6840;
+      margin: 0 0.3em;
+    }
+    .tap-btn {
+      margin-top: 3rem;
+      padding: 0.88rem 3.2rem;
+      background: #7a8f6e;
+      color: #fff;
+      border: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.82rem, 2.4vw, 1rem);
+      letter-spacing: 0.18em;
+      font-weight: 400;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .tap-btn:hover { background: #5c7355; }
+
+    /* ══════════════════════════════
+       STORY SLIDER
+    ══════════════════════════════ */
+    #story {
+      width: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s ease 0.15s, visibility 0.6s ease 0.15s;
+    }
+    #story.visible { opacity: 1; visibility: visible; }
+
+    .section {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+      min-height: 100vh;
+      position: relative;
+      padding: 2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: transparent;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        min-height: auto;
+        padding: 1.2rem 0;
+      }
+    }
+    .sec-divider {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.6rem 0;
+      color: #9ab48a;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .si {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1.6rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* ══════════════════════════════
+       SLIDE 0 — SAVE THE DATE
+    ══════════════════════════════ */
+    .s0-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(1.1rem, 3.2vw, 1.4rem);
+      font-weight: 300;
+      letter-spacing: 0.52em;
+      color: #1c1c1c;
+      margin-top: 2.8rem;
+      margin-bottom: 1.6rem;
+    }
+    .monogram-wrap {
+      width: clamp(250px, 70vw, 340px);
+      height: clamp(250px, 70vw, 340px);
+      margin-bottom: 1.6rem;
+      position: relative;
+    }
+    .s0-month {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+      font-weight: 300;
+      letter-spacing: 0.58em;
+      color: #1c1c1c;
+      margin-bottom: 0.85rem;
+    }
+    .date-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2.4rem;
+    }
+    .date-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0.9rem;
+    }
+    .dhr { width: clamp(62px, 17vw, 98px); height: 1px; background: #1c1c1c; }
+    .dlbl {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(1.15rem, 3vw, 1.35rem);
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      color: #1c1c1c;
+      margin: 0.28rem 0;
+    }
+    .dnum {
+      font-family: 'Pinyon Script', cursive;
+      font-size: clamp(5.5rem, 17vw, 8rem);
+      line-height: 0.88;
+      color: #1c1c1c;
+      padding: 0 0.4rem;
+    }
+    .s0-cross {
+      font-size: 1.35rem;
+      color: #3e5e34;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+    .s0-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.14rem, 3vw, 1.3rem);
+      font-weight: 300;
+      color: #3a4a36;
+      line-height: 1.85;
+      text-align: center;
+      max-width: 310px;
+      margin-bottom: 0.28rem;
+    }
+    .s0-quote strong { font-weight: 700; font-style: normal; }
+    .s0-ref {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(0.96rem, 2.5vw, 1.08rem);
+      color: #567050;
+      margin-bottom: 2rem;
+    }
+    .s0-families {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(1rem, 3.2vw, 1.28rem);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #1c1c1c;
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+    .s0-invite {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.14rem, 3vw, 1.3rem);
+      font-weight: 300;
+      color: #3a4a36;
+      line-height: 1.75;
+      text-align: center;
+      margin-bottom: 1.4rem;
+    }
+    .s0-names {
+      font-family: 'Alex Brush', cursive;
+      font-size: clamp(3.4rem, 14vw, 5.2rem);
+      color: #1c1c1c;
+      line-height: 1.15;
+      text-align: center;
+    }
+    .s0-names-amp {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.42em;
+      font-weight: 300;
+      display: block;
+      line-height: 1.4;
+    }
+
+    /* ══════════════════════════════
+       SECTION SLIDES (1-5)
+    ══════════════════════════════ */
+    .sec-head {
+      text-align: center;
+      padding-top: 3.6rem;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+    .sec-pre {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.86rem;
+      font-weight: 300;
+      letter-spacing: 0.45em;
+      color: #567050;
+      display: block;
+      margin-bottom: 0.55rem;
+    }
+    .sec-title {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(1.55rem, 5.5vw, 2.3rem);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: #1c1c1c;
+    }
+    .sec-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.12rem, 2.9vw, 1.24rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #4a6040;
+      margin-top: 0.55rem;
+      line-height: 1.65;
+    }
+
+    /* location cards */
+    .lcards { width: 100%; display: flex; flex-direction: column; gap: 1.15rem; margin-bottom: 1rem; }
+    .lcard {
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(140,180,150,0.3);
+      padding: 1.45rem 1.55rem;
+      text-align: left;
+    }
+    .ltype {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      color: #567050;
+      margin-bottom: 0.32rem;
+    }
+    .lname {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(1.2rem, 3.8vw, 1.44rem);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: #1c1c1c;
+      margin-bottom: 0.28rem;
+    }
+    .laddr {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.12rem;
+      font-style: italic;
+      font-weight: 300;
+      color: #4a5a44;
+      margin-bottom: 0.65rem;
+    }
+    .ltime {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.24em;
+      color: #567050;
+      margin-bottom: 0.65rem;
+    }
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.38rem 0.88rem;
+      border: 1px solid #7a8f6e;
+      background: transparent;
+      color: #3d5c30;
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      font-weight: 400;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .map-btn:hover { background: #7a8f6e; color: #fff; }
+    .map-btn svg { width: 10px; height: 10px; }
+    .ldiv { text-align: center; color: #9ab48a; font-size: 1.05rem; line-height: 1; }
+
+    /* countdown */
+    .cdgrid {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: clamp(0.9rem, 3.5vw, 2.2rem);
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .cdu { display: flex; flex-direction: column; align-items: center; }
+    .cdnum {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(3rem, 10vw, 4.8rem);
+      font-weight: 300;
+      color: #1c1c1c;
+      line-height: 1;
+      min-width: 2ch;
+      text-align: center;
+    }
+    .cdlbl {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.28em;
+      color: #567050;
+      margin-top: 0.4rem;
+    }
+    .cdsep {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      color: #9ab48a;
+      line-height: 1;
+      padding-top: 0.08em;
+      align-self: flex-start;
+    }
+
+    /* gift */
+    .gbox {
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(140,180,150,0.3);
+      padding: 1.8rem 1.6rem;
+      text-align: center;
+      width: 100%;
+    }
+    .gtext {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.12rem, 3vw, 1.26rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #3a4a36;
+      line-height: 1.88;
+      margin-bottom: 1.15rem;
+    }
+    .gaccount {
+      border-top: 1px solid rgba(140,180,150,0.38);
+      padding-top: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.12rem;
+      font-weight: 300;
+      color: #2a3c28;
+      line-height: 1.72;
+    }
+    .gaccount strong {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.3em;
+      font-weight: 400;
+      color: #567050;
+      display: block;
+      margin-bottom: 0.38rem;
+      font-style: normal;
+    }
+
+    /* rsvp form */
+    .rform { width: 100%; }
+
+    /* ── SCHEDULE TIMELINE ── */
+    .sched-wrap {
+      width: 100%;
+      position: relative;
+      padding: 0.5rem 0 1rem;
+    }
+    /* vertical dotted line */
+    .sched-wrap::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 1px;
+      border-left: 2px dotted rgba(90,120,80,0.4);
+      transform: translateX(-50%);
+    }
+    .sched-item {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-height: 110px;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    /* dot on the centre line */
+    .sched-item::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px; height: 8px;
+      background: #7a9470;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 1px #7a9470;
+      z-index: 2;
+    }
+    .sched-left  { width: 50%; display: flex; flex-direction: column; align-items: flex-end;   padding-right: 1.2rem; }
+    .sched-right { width: 50%; display: flex; flex-direction: column; align-items: flex-start; padding-left: 1.2rem; }
+    .sched-empty { width: 50%; }
+    .sched-icon {
+      width: 68px; height: 68px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sched-icon svg { width: 60px; height: 60px; }
+    .sched-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(0.78rem, 2.2vw, 0.92rem);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: #2a3c28;
+      line-height: 1.2;
+    }
+    .sched-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.74rem, 1.9vw, 0.86rem);
+      font-weight: 300;
+      color: #567050;
+      margin-top: 0.18rem;
+    }
+    /* dotted connector lines */
+    .sched-connector-l {
+      display: flex; align-items: center; gap: 0;
+      width: 100%;
+    }
+    .sched-connector-r {
+      display: flex; align-items: center; gap: 0;
+      width: 100%;
+    }
+    /* text block left-aligned items */
+    .sched-left .sched-label,
+    .sched-left .sched-time { text-align: right; }
+    .fgroup { margin-bottom: 1.15rem; display: flex; flex-direction: column; gap: 0.33rem; }
+    .flabel {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.26em;
+      font-weight: 400;
+      color: #4a6040;
+    }
+    .finput, .fselect, .ftextarea {
+      width: 100%;
+      padding: 0.68rem 0.88rem;
+      border: 1px solid rgba(140,180,150,0.48);
+      background: rgba(255,255,255,0.6);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: #1c1c1c;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      border-radius: 0;
+    }
+    .finput:focus, .fselect:focus, .ftextarea:focus { border-color: #7a8f6e; }
+    .fselwrap { position: relative; }
+    .fselwrap::after {
+      content: '▾';
+      position: absolute; right: 0.8rem; top: 50%;
+      transform: translateY(-50%);
+      color: #7a8f6e; pointer-events: none; font-size: 0.86rem;
+    }
+    .ftextarea { min-height: 78px; resize: vertical; }
+    .charcount { font-size: 0.82rem; color: #7a8f6e; text-align: right; }
+    .subbtn {
+      width: 100%;
+      padding: 0.88rem;
+      background: #7a8f6e;
+      color: #fff;
+      border: none;
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.34em;
+      font-weight: 400;
+      cursor: pointer;
+      margin-top: 0.4rem;
+      transition: background 0.2s;
+    }
+    .subbtn:hover { background: #5c7355; }
+    .subbtn:disabled { opacity: 0.58; cursor: not-allowed; }
+    .rsuccess { display: none; text-align: center; padding: 2rem 0; }
+    .rsuccess.visible { display: block; }
+    .rsuccess h3 {
+      font-family: 'Cormorant SC', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      margin: 1rem 0 0.5rem;
+    }
+    .rsuccess p { font-style: italic; font-weight: 300; color: #4a6040; font-size: 1.2rem; }
+  </style>
+</head>
+<body>
+
+<audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
+<div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(0,0,0,0.55);color:#a8c8a0;text-align:center;font-family:monospace;font-size:0.72rem;padding:0.35rem;letter-spacing:0.1em;">OPTION B PREVIEW — background breathes through, not yet on main</div>
+<div id="petals"></div>
+
+<!-- botanical corners using real CDN images -->
+<div class="bc bc-tl"><img src="C604 Left Leaf.png" alt="" /></div>
+<div class="bc bc-br"><img src="C604 Left Leaf.png" alt="" /></div>
+<div class="bc bc-bl"><img src="C604 Right Leaf.png" alt="" /></div>
+<div class="bc bc-tr"><img src="C604 Right Leaf.png" alt="" /></div>
+
+<!-- ════════════════ SPLASH ════════════════ -->
+<div id="splash">
+  <img src="logo.png" alt="T &amp; C" class="splash-logo" />
+  <p class="splash-invite">You are invited to celebrate the wedding of</p>
+  <p class="splash-name">Tony <span class="splash-amp">&amp;</span> Carine</p>
+  <button class="tap-btn" id="tap-start">Let's go!</button>
+</div>
+
+<!-- ════════════════ STORY SECTIONS ════════════════ -->
+<div id="story">
+
+    <!-- ── Section 0: Save the Date ── -->
+    <section class="section">
+      <!-- watercolor title pattern overlay -->
+      <img class="title-ptrn" src="Title Pattern 1.svg" alt="" />
+      <div class="si" style="padding-top:0;">
+        <p class="s0-label">Save the Date</p>
+
+        <!-- T&C monogram -->
+        <div class="monogram-wrap">
+          <img src="logo.png" alt="T &amp; C Monogram" style="width:100%;height:100%;object-fit:contain;" />
+        </div>
+
+        <p class="s0-month">August</p>
+        <div class="date-row">
+          <div class="date-col">
+            <div class="dhr"></div>
+            <span class="dlbl">Saturday</span>
+            <div class="dhr"></div>
+          </div>
+          <span class="dnum">1</span>
+          <div class="date-col">
+            <div class="dhr"></div>
+            <span class="dlbl">2026</span>
+            <div class="dhr"></div>
+          </div>
+        </div>
+
+        <p class="s0-quote">
+          And now these three remain:<br>
+          <strong>faith, hope and love.</strong><br>
+          But the greatest of these is love.
+        </p>
+        <p class="s0-ref">1 Corinthians 13:13</p>
+
+        <p class="s0-families">Antoun &amp; Itani families</p>
+        <p class="s0-invite">
+          Joyfully invite you to celebrate<br>
+          the union of their son and daughter
+        </p>
+        <p class="s0-names">
+          Tony<br>
+          <span class="s0-names-amp">&amp;</span>
+          Carine
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Slide 1: The Gathering ── -->
+    <section class="section">
+      <img class="title-ptrn" src="Title Pattern 1.svg" alt="" />
+      <div class="si" style="justify-content:flex-start;">
+        <div class="sec-head">
+          <span class="sec-pre">Before the Celebration</span>
+          <h2 class="sec-title">The Gathering</h2>
+          <p class="sec-sub">Join us for an intimate gathering with the families<br>before the festivities begin.</p>
+        </div>
+        <div class="lcards">
+          <div class="lcard">
+            <div class="ltype">Groom&rsquo;s Gathering &nbsp;&middot;&nbsp; TBD</div>
+            <div class="lname">At the Groom&rsquo;s Home</div>
+            <div class="laddr">Location, Lebanon</div>
+            <a href="#" class="map-btn" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              View on Map
+            </a>
+          </div>
+          <div class="ldiv">&#10022;</div>
+          <div class="lcard">
+            <div class="ltype">Bride&rsquo;s Gathering &nbsp;&middot;&nbsp; TBD</div>
+            <div class="lname">At the Bride&rsquo;s Home</div>
+            <div class="laddr">Location, Lebanon</div>
+            <a href="#" class="map-btn" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              View on Map
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Slide 2: The Celebration ── -->
+    <section class="section">
+      <img class="title-ptrn" src="Title Pattern 1.svg" alt="" />
+      <div class="si" style="justify-content:flex-start;">
+        <div class="sec-head">
+          <span class="sec-pre">August 1, 2026</span>
+          <h2 class="sec-title">The Celebration</h2>
+          <p class="sec-sub">We are delighted to share our special day with you.</p>
+        </div>
+        <div class="lcards">
+          <div class="lcard">
+            <div class="ltype">Wedding Ceremony</div>
+            <div class="lname">Notre Dame Church</div>
+            <div class="laddr">Araya, Lebanon</div>
+            <div class="ltime">6:00 PM</div>
+            <a href="https://maps.google.com/?q=Notre+Dame+Church+Araya+Lebanon" class="map-btn" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              View on Map
+            </a>
+          </div>
+          <div class="ldiv">&#10022;</div>
+          <div class="lcard">
+            <div class="ltype">Wedding Party</div>
+            <div class="lname">Le T&eacute;l&eacute;graphe de Belle Vue</div>
+            <div class="laddr">Bhamdoun, Lebanon</div>
+            <div class="ltime">Following the Ceremony</div>
+            <a href="https://maps.google.com/?q=Le+Telegraphe+de+Belle+Vue+Bhamdoun+Lebanon" class="map-btn" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              View on Map
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Schedule ── -->
+    <section class="section">
+      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
+      <div class="si">
+        <div class="sec-head" style="text-align:center;">
+          <span class="sec-pre">August 1, 2026</span>
+          <h2 class="sec-title">The Schedule</h2>
+        </div>
+
+        <div class="sched-wrap">
+
+          <!-- Church Ceremony — LEFT -->
+          <div class="sched-item">
+            <div class="sched-left">
+              <div class="sched-icon">
+                <!-- church / cross -->
+                <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="27" y="6" width="6" height="18" rx="1" fill="#5a7850" opacity="0.85"/>
+                  <rect x="20" y="12" width="20" height="5" rx="1" fill="#5a7850" opacity="0.85"/>
+                  <path d="M18 30 L18 52 L42 52 L42 30 Q30 22 18 30Z" fill="#8aaa7a" opacity="0.55"/>
+                  <rect x="25" y="38" width="10" height="14" rx="1" fill="#fff" opacity="0.7"/>
+                  <path d="M12 30 Q30 20 48 30" stroke="#5a7850" stroke-width="1.2" fill="none" opacity="0.6"/>
+                </svg>
+              </div>
+              <div class="sched-label">Church Ceremony</div>
+              <div class="sched-time">6:00 PM</div>
+            </div>
+            <div class="sched-empty"></div>
+          </div>
+
+          <!-- Guest Arrival — RIGHT -->
+          <div class="sched-item">
+            <div class="sched-empty"></div>
+            <div class="sched-right">
+              <div class="sched-icon">
+                <!-- vintage car top-down -->
+                <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="30" cy="30" rx="22" ry="12" fill="#c8b98a" opacity="0.5"/>
+                  <rect x="12" y="23" width="36" height="14" rx="6" fill="#c8b98a" opacity="0.8"/>
+                  <rect x="18" y="20" width="24" height="10" rx="4" fill="#e8dbb0" opacity="0.7"/>
+                  <circle cx="15" cy="38" r="4" fill="#6a5a3a" opacity="0.7"/>
+                  <circle cx="45" cy="38" r="4" fill="#6a5a3a" opacity="0.7"/>
+                  <circle cx="15" cy="22" r="4" fill="#6a5a3a" opacity="0.7"/>
+                  <circle cx="45" cy="22" r="4" fill="#6a5a3a" opacity="0.7"/>
+                </svg>
+              </div>
+              <div class="sched-label">Guest Arrival</div>
+              <div class="sched-time">7:30 PM</div>
+            </div>
+          </div>
+
+          <!-- Cocktail Hour — LEFT -->
+          <div class="sched-item">
+            <div class="sched-left">
+              <div class="sched-icon">
+                <!-- saxophonist / music note -->
+                <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M38 10 C44 12 46 20 44 28 C42 36 36 44 28 50" stroke="#8aaa6a" stroke-width="3" fill="none" stroke-linecap="round"/>
+                  <path d="M28 50 C24 54 18 55 16 52 C14 49 16 44 20 42 C24 40 28 42 28 46 C28 50 24 52 20 50" stroke="#6a8a5a" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <circle cx="20" cy="50" r="4" fill="#8aaa6a" opacity="0.6"/>
+                  <circle cx="34" cy="10" r="5" fill="#8aaa6a" opacity="0.55"/>
+                  <line x1="34" y1="10" x2="38" y2="10" stroke="#6a8a5a" stroke-width="1.5"/>
+                  <circle cx="28" cy="20" r="2" fill="#8aaa6a" opacity="0.5"/>
+                  <circle cx="32" cy="28" r="2" fill="#8aaa6a" opacity="0.45"/>
+                  <circle cx="34" cy="36" r="2" fill="#8aaa6a" opacity="0.4"/>
+                </svg>
+              </div>
+              <div class="sched-label">Cocktail Hour</div>
+              <div class="sched-time">8:00 PM</div>
+            </div>
+            <div class="sched-empty"></div>
+          </div>
+
+          <!-- Entrance — RIGHT -->
+          <div class="sched-item">
+            <div class="sched-empty"></div>
+            <div class="sched-right">
+              <div class="sched-icon">
+                <!-- couple silhouette -->
+                <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- groom -->
+                  <circle cx="22" cy="12" r="6" fill="#4a6040" opacity="0.7"/>
+                  <path d="M14 28 C14 20 30 20 30 28 L30 42 L14 42 Z" fill="#4a6040" opacity="0.6"/>
+                  <!-- bride -->
+                  <circle cx="38" cy="11" r="6" fill="#8aaa7a" opacity="0.7"/>
+                  <path d="M26 30 C28 22 48 22 50 30 L52 52 L24 52 Z" fill="#a0c090" opacity="0.55"/>
+                  <!-- veil -->
+                  <path d="M36 10 C40 8 46 12 48 18" stroke="#c8e0b8" stroke-width="1.5" fill="none" opacity="0.7"/>
+                </svg>
+              </div>
+              <div class="sched-label">Entrance</div>
+              <div class="sched-time">8:30 PM</div>
+            </div>
+          </div>
+
+          <!-- Dinner — LEFT -->
+          <div class="sched-item">
+            <div class="sched-left">
+              <div class="sched-icon">
+                <!-- plate & cutlery -->
+                <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="30" cy="30" r="18" stroke="#8aaa7a" stroke-width="1.4" fill="#f5f0e8" opacity="0.7"/>
+                  <circle cx="30" cy="30" r="12" stroke="#8aaa7a" stroke-width="0.8" fill="none" opacity="0.5"/>
+                  <!-- fork -->
+                  <line x1="12" y1="14" x2="12" y2="46" stroke="#7a9a6a" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="10" y1="14" x2="10" y2="22" stroke="#7a9a6a" stroke-width="1.2" stroke-linecap="round"/>
+                  <line x1="14" y1="14" x2="14" y2="22" stroke="#7a9a6a" stroke-width="1.2" stroke-linecap="round"/>
+                  <!-- knife -->
+                  <line x1="48" y1="14" x2="48" y2="46" stroke="#7a9a6a" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M48 14 C50 18 50 24 48 26" stroke="#7a9a6a" stroke-width="1.2" fill="none"/>
+                  <!-- napkin ring -->
+                  <ellipse cx="30" cy="30" rx="5" ry="7" stroke="#b09060" stroke-width="1.2" fill="none" opacity="0.6" transform="rotate(15 30 30)"/>
+                </svg>
+              </div>
+              <div class="sched-label">Dinner</div>
+              <div class="sched-time">9:00 PM</div>
+            </div>
+            <div class="sched-empty"></div>
+          </div>
+
+          <!-- Dancing — RIGHT -->
+          <div class="sched-item">
+            <div class="sched-empty"></div>
+            <div class="sched-right">
+              <div class="sched-icon">
+                <!-- dancers -->
+                <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- person 1 -->
+                  <circle cx="18" cy="12" r="5" fill="#8aaa7a" opacity="0.75"/>
+                  <path d="M12 26 C12 18 24 18 24 26 L22 40 L14 40 Z" fill="#8aaa7a" opacity="0.6"/>
+                  <line x1="12" y1="26" x2="8" y2="34" stroke="#8aaa7a" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="24" y1="26" x2="28" y2="32" stroke="#8aaa7a" stroke-width="1.5" stroke-linecap="round"/>
+                  <!-- person 2 -->
+                  <circle cx="38" cy="10" r="5" fill="#5a7850" opacity="0.75"/>
+                  <path d="M32 24 C32 16 44 16 44 24 L44 38 L32 38 Z" fill="#5a7850" opacity="0.6"/>
+                  <line x1="32" y1="24" x2="28" y2="30" stroke="#5a7850" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="44" y1="24" x2="48" y2="18" stroke="#5a7850" stroke-width="1.5" stroke-linecap="round"/>
+                  <!-- disco dot -->
+                  <circle cx="30" cy="6" r="4" fill="#c8d8b8" opacity="0.7"/>
+                  <circle cx="30" cy="6" r="2" fill="#a0c090" opacity="0.8"/>
+                </svg>
+              </div>
+              <div class="sched-label">Dancing</div>
+              <div class="sched-time">10:30 PM</div>
+            </div>
+          </div>
+
+          <!-- Cake Cutting — LEFT -->
+          <div class="sched-item">
+            <div class="sched-left">
+              <div class="sched-icon">
+                <!-- tiered cake -->
+                <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- top tier -->
+                  <rect x="20" y="18" width="20" height="10" rx="2" fill="#e8d8b0" opacity="0.8"/>
+                  <ellipse cx="30" cy="18" rx="10" ry="3" fill="#f0e4c0" opacity="0.9"/>
+                  <!-- middle tier -->
+                  <rect x="14" y="28" width="32" height="10" rx="2" fill="#e0cea0" opacity="0.8"/>
+                  <ellipse cx="30" cy="28" rx="16" ry="3.5" fill="#ecdab0" opacity="0.9"/>
+                  <!-- bottom tier -->
+                  <rect x="8" y="38" width="44" height="10" rx="2" fill="#d8c290" opacity="0.8"/>
+                  <ellipse cx="30" cy="38" rx="22" ry="4" fill="#e4cea0" opacity="0.9"/>
+                  <!-- candles -->
+                  <rect x="28" y="10" width="4" height="8" rx="1" fill="#f0e0c0" opacity="0.7"/>
+                  <ellipse cx="30" cy="10" rx="2" ry="1" fill="#f5c060" opacity="0.8"/>
+                  <!-- just married text area -->
+                  <rect x="16" y="30" width="28" height="6" rx="1" fill="none" stroke="#b09060" stroke-width="0.5" opacity="0.5"/>
+                </svg>
+              </div>
+              <div class="sched-label">Cake Cutting</div>
+              <div class="sched-time">11:00 PM</div>
+            </div>
+            <div class="sched-empty"></div>
+          </div>
+
+          <!-- Happily Ever After — CENTRE (full width) -->
+          <div class="sched-item" style="flex-direction:column;align-items:center;min-height:130px;">
+            <div class="sched-icon" style="width:90px;height:90px;margin-bottom:0.5rem;">
+              <!-- just married car -->
+              <svg viewBox="0 0 90 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="28" width="74" height="20" rx="8" fill="#e8d8a0" opacity="0.8"/>
+                <path d="M20 28 C22 16 68 16 70 28" fill="#f0e4b8" opacity="0.75"/>
+                <rect x="26" y="18" width="38" height="12" rx="3" fill="#f8f0d8" opacity="0.6"/>
+                <circle cx="20" cy="50" r="7" fill="#6a5a3a" opacity="0.7"/>
+                <circle cx="20" cy="50" r="4" fill="#c8b880" opacity="0.6"/>
+                <circle cx="70" cy="50" r="7" fill="#6a5a3a" opacity="0.7"/>
+                <circle cx="70" cy="50" r="4" fill="#c8b880" opacity="0.6"/>
+                <!-- ribbons -->
+                <path d="M74 38 C80 34 88 30 90 28" stroke="#e8c0c0" stroke-width="1.2" fill="none" opacity="0.7"/>
+                <path d="M74 42 C82 40 90 38 92 36" stroke="#e8c0c0" stroke-width="1.2" fill="none" opacity="0.6"/>
+                <!-- just married sign -->
+                <rect x="30" y="44" width="30" height="10" rx="2" fill="#fff" opacity="0.8"/>
+                <text x="45" y="52" font-family="Cormorant Garamond,serif" font-size="5" fill="#8a7040" text-anchor="middle">Just Married</text>
+              </svg>
+            </div>
+            <div class="sched-label" style="text-align:center;">Happily Ever After</div>
+            <div class="sched-time" style="text-align:center;">1:00 AM</div>
+          </div>
+
+        </div><!-- /.sched-wrap -->
+      </div>
+    </section>
+
+    <!-- ── Slide 3: Countdown ── -->
+    <section class="section">
+      <img class="title-ptrn" src="Title Pattern 1.svg" alt="" />
+      <div class="si" style="justify-content:center;text-align:center;">
+        <div class="sec-head">
+          <span class="sec-pre">Counting Down</span>
+          <h2 class="sec-title">The Big Day</h2>
+        </div>
+        <div class="cdgrid">
+          <div class="cdu"><span class="cdnum" id="cd-days">--</span><span class="cdlbl">Days</span></div>
+          <span class="cdsep">&#183;</span>
+          <div class="cdu"><span class="cdnum" id="cd-hours">--</span><span class="cdlbl">Hours</span></div>
+          <span class="cdsep">&#183;</span>
+          <div class="cdu"><span class="cdnum" id="cd-minutes">--</span><span class="cdlbl">Minutes</span></div>
+          <span class="cdsep">&#183;</span>
+          <div class="cdu"><span class="cdnum" id="cd-seconds">--</span><span class="cdlbl">Seconds</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Slide 4: Gift Registry ── -->
+    <section class="section">
+      <img class="title-ptrn" src="Title Pattern 1.svg" alt="" />
+      <div class="si" style="justify-content:flex-start;">
+        <div class="sec-head">
+          <span class="sec-pre">Gift Registry</span>
+          <h2 class="sec-title">A Thoughtful Gift</h2>
+        </div>
+        <div class="gbox">
+          <p class="gtext">
+            Your presence is the greatest gift of all.<br>
+            However, if you wish to honour us with a gift,<br>
+            we have prepared the following for your convenience.
+          </p>
+          <div class="gaccount">
+            <strong>Bank Transfer</strong>
+            Account Name &nbsp;&middot;&nbsp; Bank Name<br>
+            IBAN: LB00 0000 0000 0000 0000 0000 0000
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Slide 5: RSVP ── -->
+    <section class="section">
+      <img class="title-ptrn" src="Title Pattern 1.svg" alt="" />
+      <div class="si" style="justify-content:flex-start;">
+        <div class="sec-head">
+          <span class="sec-pre">Kindly Respond By July 1, 2026</span>
+          <h2 class="sec-title">Be Our Guest</h2>
+          <p class="sec-sub">Please let us know if you will be joining us.</p>
+        </div>
+
+        <form id="rsvp-form" class="rform">
+          <div class="fgroup">
+            <label class="flabel" for="gname">Your Full Name</label>
+            <input class="finput" type="text" id="gname" name="name" placeholder="Enter your full name" required />
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="attendance">Will You Attend?</label>
+            <div class="fselwrap">
+              <select class="fselect" id="attendance" name="attendance" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="yes">Joyfully accepts</option>
+                <option value="no">Regretfully declines</option>
+              </select>
+            </div>
+          </div>
+          <div class="fgroup" id="gcg">
+            <label class="flabel" for="gcount">Number of Guests</label>
+            <div class="fselwrap">
+              <select class="fselect" id="gcount" name="guest_count">
+                <option value="1">1 guest</option>
+                <option value="2">2 guests</option>
+                <option value="3">3 guests</option>
+                <option value="4">4 guests</option>
+                <option value="5">5+ guests</option>
+              </select>
+            </div>
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="wishes">
+              Your Wishes
+              <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;letter-spacing:0;font-size:0.8rem;">(optional &middot; 120 chars)</span>
+            </label>
+            <textarea class="ftextarea" id="wishes" name="wishes" maxlength="120" placeholder="Share your warmest wishes&#8230;"></textarea>
+            <span class="charcount"><span id="charrem">120</span> remaining</span>
+          </div>
+          <button type="submit" class="subbtn" id="subbtn">Send RSVP</button>
+        </form>
+
+        <div class="rsuccess" id="rsuccess">
+          <svg width="46" height="46" viewBox="0 0 46 46" fill="none">
+            <path d="M23 3 C23 3 40 13 40 26 C40 35.4 32.4 43 23 43 C13.6 43 6 35.4 6 26 C6 13 23 3 23 3Z" fill="#8aaa7a" opacity="0.72"/>
+          </svg>
+          <h3>Thank You</h3>
+          <p>We have received your RSVP and can&rsquo;t wait to celebrate with you.</p>
+        </div>
+      </div>
+    </section>
+
+</div><!-- /story -->
+
+<script>
+  /* ── Tap to start ── */
+  document.documentElement.classList.add('locked');
+  document.body.classList.add('locked');
+  document.getElementById('tap-start').addEventListener('click', () => {
+    document.getElementById('splash').classList.add('hidden');
+    document.getElementById('story').classList.add('visible');
+    document.documentElement.classList.remove('locked');
+    document.body.classList.remove('locked');
+    const music = document.getElementById('bg-music');
+    music.volume = 0.45;
+    music.play().catch(() => {});
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+
+  /* ── Countdown ── */
+  const weddingDate = new Date('2026-08-01T18:00:00');
+  function tick() {
+    const diff = weddingDate - new Date();
+    if (diff <= 0) {
+      ['cd-days','cd-hours','cd-minutes','cd-seconds'].forEach(id =>
+        document.getElementById(id).textContent = '00');
+      return;
+    }
+    document.getElementById('cd-days').textContent    = String(Math.floor(diff / 86400000)).padStart(2,'0');
+    document.getElementById('cd-hours').textContent   = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+    document.getElementById('cd-minutes').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+    document.getElementById('cd-seconds').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ── Char counter ── */
+  document.getElementById('wishes').addEventListener('input', function() {
+    document.getElementById('charrem').textContent = 120 - this.value.length;
+  });
+
+  /* ── Hide guest count when declining ── */
+  document.getElementById('attendance').addEventListener('change', function() {
+    document.getElementById('gcg').style.display = this.value === 'no' ? 'none' : 'flex';
+  });
+
+  /* ── RSVP submit ──
+     Posts to a Google Apps Script web app that appends a row to a sheet
+     and emails azizantoun@gmail.com. Replace the URL below with the one
+     produced when you "Deploy → New deployment → Web app". */
+  const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz5MzuK6JtfmmVJip3ZPHfwbvMBgrY72rMQhffZ18m95uPaKXYOz1fQ063xnrjt0g34mA/exec';
+
+  /* Hidden iframe for reliable Apps Script submission */
+  const rsvpFrame = document.createElement('iframe');
+  rsvpFrame.name = 'rsvp-iframe';
+  rsvpFrame.style.display = 'none';
+  document.body.appendChild(rsvpFrame);
+
+  const rsvpForm = document.getElementById('rsvp-form');
+  rsvpForm.action = RSVP_ENDPOINT;
+  rsvpForm.method = 'POST';
+  rsvpForm.target = 'rsvp-iframe';
+
+  rsvpForm.addEventListener('submit', function() {
+    const btn = document.getElementById('subbtn');
+    btn.disabled = true; btn.textContent = 'Sending…';
+
+    /* Add submitted_at as a hidden field */
+    let tsField = this.querySelector('input[name="submitted_at"]');
+    if (!tsField) {
+      tsField = document.createElement('input');
+      tsField.type = 'hidden';
+      tsField.name = 'submitted_at';
+      this.appendChild(tsField);
+    }
+    tsField.value = new Date().toISOString();
+
+    /* Show success after a short delay (iframe submit has no callback) */
+    setTimeout(() => {
+      this.style.display = 'none';
+      document.getElementById('rsuccess').classList.add('visible');
+    }, 1500);
+  });
+
+  /* ── Rising eucalyptus leaves ── */
+  const petalsEl = document.getElementById('petals');
+  /* Elongated leaf / eucalyptus shapes */
+  const shapes = [
+    /* narrow lance leaf */
+    'M10 1 C12 4 13 9 12 15 C11 19 10 23 10 23 C10 23 9 19 8 15 C7 9 8 4 10 1Z',
+    /* rounded oval leaf */
+    'M10 2 C14 3 17 7 17 12 C17 17 14 21 10 22 C6 21 3 17 3 12 C3 7 6 3 10 2Z',
+    /* asymmetric leaf */
+    'M10 1 C14 2 17 6 16 12 C15 18 12 22 10 23 C8 22 5 17 5 12 C5 6 7 1 10 1Z',
+    /* slim elongated */
+    'M10 0 C11 4 12 10 11 17 C10.5 20 10 24 10 24 C10 24 9.5 20 9 17 C8 10 9 4 10 0Z',
+    /* wide oval */
+    'M10 3 C15 2 19 6 19 11 C19 16 15 20 10 21 C5 20 1 16 1 11 C1 6 5 4 10 3Z'
+  ];
+
+  function makePetal() {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    const dur   = 10 + Math.random() * 14;
+    const delay = Math.random() * 10;
+    const sz    = 12 + Math.random() * 14;
+    const sign  = Math.random() > 0.5 ? '' : '-';
+    const spin  = sign + (120 + Math.random() * 240) + 'deg';
+    const drift = (Math.random() > 0.5 ? '' : '-') + (20 + Math.random() * 55) + 'px';
+    const path  = shapes[Math.floor(Math.random() * shapes.length)];
+    const green = Math.floor(130 + Math.random() * 40);
+    const alpha = (0.45 + Math.random() * 0.35).toFixed(2);
+    const fill  = `rgba(80,${green},90,${alpha})`;
+    const stroke = `rgba(60,110,70,0.3)`;
+    p.style.cssText = `left:${Math.random()*100}%;--spin:${spin};--drift:${drift};animation-duration:${dur}s;animation-delay:${delay}s;`;
+    p.innerHTML = `<svg width="${sz}" height="${sz}" viewBox="0 0 20 24" fill="none"><path d="${path}" fill="${fill}" stroke="${stroke}" stroke-width="0.6"/></svg>`;
+    petalsEl.appendChild(p);
+    setTimeout(() => p.remove(), (dur + delay) * 1000 + 600);
+  }
+
+  for (let i = 0; i < 22; i++) setTimeout(makePetal, i * 650);
+  setInterval(makePetal, 850);
+</script>
+</body>
+</html>
