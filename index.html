@@ -16,13 +16,10 @@
     }
 
     body {
-      background-color: #e6eeea;
-      background-image:
-        radial-gradient(ellipse 110% 85% at 50% 48%, rgba(168,205,180,0.52) 0%, transparent 62%),
-        radial-gradient(ellipse 72% 62% at 14% 62%, rgba(158,198,172,0.42) 0%, transparent 56%),
-        radial-gradient(ellipse 62% 52% at 84% 22%, rgba(178,212,190,0.36) 0%, transparent 52%),
-        radial-gradient(ellipse 52% 42% at 32% 90%, rgba(155,192,168,0.3) 0%, transparent 48%),
-        radial-gradient(ellipse 42% 36% at 88% 82%, rgba(165,202,178,0.24) 0%, transparent 44%);
+      background-color: #f0f4f1;
+      background-image: url('https://evantocards.com/sites/default/files/event/cover/c604-background.jpg');
+      background-size: cover;
+      background-position: center;
     }
 
     /* ── BOTANICAL CORNERS ── */
@@ -31,10 +28,40 @@
       pointer-events: none;
       z-index: 5;
     }
-    .bc-tl { top: -6px; left: -6px;  width: clamp(165px, 44vw, 270px); }
-    .bc-br { bottom: -6px; right: -6px; width: clamp(148px, 40vw, 245px); transform: rotate(180deg); }
-    .bc-bl { bottom: -6px; left: -6px;  width: clamp(100px, 26vw, 155px); transform: rotate(90deg);  opacity: 0.55; }
-    .bc-tr { top: -6px; right: -6px; width: clamp(100px, 26vw, 155px); transform: rotate(270deg); opacity: 0.50; }
+    .bc-tl {
+      top: 0; left: 0;
+      width: clamp(160px, 46vw, 260px);
+    }
+    .bc-br {
+      bottom: 0; right: 0;
+      width: clamp(140px, 42vw, 240px);
+      transform: rotate(180deg);
+    }
+    .bc-bl {
+      bottom: 0; left: 0;
+      width: clamp(90px, 24vw, 140px);
+      transform: scaleX(-1);
+      opacity: 0.55;
+    }
+    .bc-tr {
+      top: 0; right: 0;
+      width: clamp(90px, 24vw, 140px);
+      transform: scaleY(-1);
+      opacity: 0.50;
+    }
+    .bc img { width: 100%; display: block; }
+
+    /* ── WATERCOLOR TITLE PATTERN ── */
+    .title-ptrn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 520px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.9;
+    }
 
     /* ── PETALS ── */
     #petals {
@@ -50,10 +77,10 @@
       opacity: 0;
     }
     @keyframes petalFall {
-      0%   { transform: translateY(0)     rotate(0deg)          translateX(0);         opacity: 0;   }
-      8%   { opacity: 0.8; }
-      88%  { opacity: 0.4; }
-      100% { transform: translateY(110vh) rotate(var(--spin))   translateX(var(--drift)); opacity: 0; }
+      0%   { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+      8%   { opacity: 0.7; }
+      88%  { opacity: 0.35; }
+      100% { transform: translateY(110vh) rotate(var(--spin)) translateX(var(--drift)); opacity: 0; }
     }
 
     /* ── AUDIO ── */
@@ -75,25 +102,25 @@
       font-family: 'Alex Brush', cursive;
       font-size: clamp(3.8rem, 18vw, 6rem);
       color: #1c1c1c;
-      line-height: 1.1;
+      line-height: 1.05;
     }
     .splash-amp {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem, 5.5vw, 2rem);
+      font-size: clamp(1.1rem, 4.5vw, 1.7rem);
       font-weight: 300;
       color: #4a6840;
       display: block;
-      margin: 0.4rem 0;
+      margin: 0.3rem 0;
     }
     .tap-btn {
-      margin-top: 3.2rem;
-      padding: 0.88rem 3rem;
-      background: #7a9470;
+      margin-top: 3rem;
+      padding: 0.88rem 3.2rem;
+      background: #7a8f6e;
       color: #fff;
       border: none;
-      font-family: 'Cormorant SC', serif;
-      font-size: clamp(0.72rem, 2.2vw, 0.9rem);
-      letter-spacing: 0.28em;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.82rem, 2.4vw, 1rem);
+      letter-spacing: 0.18em;
       font-weight: 400;
       cursor: pointer;
       transition: background 0.2s;
@@ -125,6 +152,7 @@
       overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      position: relative;
     }
     .slide::-webkit-scrollbar { display: none; }
 
@@ -134,6 +162,8 @@
       flex-direction: column;
       align-items: center;
       padding: 0 1.6rem 4.5rem;
+      position: relative;
+      z-index: 1;
     }
 
     /* dots */
@@ -151,7 +181,7 @@
       transition: background 0.3s, transform 0.3s;
       cursor: pointer;
     }
-    .dot.active { background: #7a9470; transform: scale(1.35); }
+    .dot.active { background: #7a8f6e; transform: scale(1.35); }
 
     /* swipe hint */
     #swipe-hint {
@@ -181,15 +211,16 @@
       font-family: 'Cormorant SC', serif;
       font-size: clamp(0.68rem, 1.9vw, 0.86rem);
       font-weight: 300;
-      letter-spacing: 0.48em;
+      letter-spacing: 0.52em;
       color: #1c1c1c;
-      margin-top: 3rem;
-      margin-bottom: 1.9rem;
+      margin-top: 2.8rem;
+      margin-bottom: 1.6rem;
     }
     .monogram-wrap {
-      width: clamp(195px, 56vw, 268px);
-      height: clamp(195px, 56vw, 268px);
-      margin-bottom: 1.8rem;
+      width: clamp(210px, 60vw, 290px);
+      height: clamp(210px, 60vw, 290px);
+      margin-bottom: 1.6rem;
+      position: relative;
     }
     .s0-month {
       font-family: 'Cormorant SC', serif;
@@ -203,7 +234,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 2.6rem;
+      margin-bottom: 2.4rem;
     }
     .date-col {
       display: flex;
@@ -228,28 +259,28 @@
       padding: 0 0.4rem;
     }
     .s0-cross {
-      font-size: 1.45rem;
+      font-size: 1.35rem;
       color: #3e5e34;
-      margin-bottom: 1.15rem;
+      margin-bottom: 1rem;
       line-height: 1;
     }
     .s0-quote {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(0.96rem, 2.6vw, 1.12rem);
+      font-size: clamp(0.94rem, 2.5vw, 1.1rem);
       font-weight: 300;
-      color: #2a3c28;
-      line-height: 1.82;
+      color: #3a4a36;
+      line-height: 1.85;
       text-align: center;
       max-width: 310px;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.28rem;
     }
-    .s0-quote strong { font-weight: 600; font-style: normal; }
+    .s0-quote strong { font-weight: 700; font-style: normal; }
     .s0-ref {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: clamp(0.74rem, 1.9vw, 0.86rem);
       color: #567050;
-      margin-bottom: 2.1rem;
+      margin-bottom: 2rem;
     }
     .s0-families {
       font-family: 'Cormorant SC', serif;
@@ -258,14 +289,14 @@
       letter-spacing: 0.04em;
       color: #1c1c1c;
       text-align: center;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.8rem;
     }
     .s0-invite {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(0.96rem, 2.5vw, 1.1rem);
       font-weight: 300;
-      color: #2a3c28;
-      line-height: 1.72;
+      color: #3a4a36;
+      line-height: 1.75;
       text-align: center;
       margin-bottom: 1.4rem;
     }
@@ -322,9 +353,9 @@
     /* location cards */
     .lcards { width: 100%; display: flex; flex-direction: column; gap: 1.15rem; margin-bottom: 1rem; }
     .lcard {
-      background: rgba(255,255,255,0.62);
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(140,180,150,0.38);
+      background: rgba(255,255,255,0.68);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(140,180,150,0.35);
       padding: 1.45rem 1.55rem;
       text-align: left;
     }
@@ -364,7 +395,7 @@
       align-items: center;
       gap: 0.35rem;
       padding: 0.38rem 0.88rem;
-      border: 1px solid #7a9470;
+      border: 1px solid #7a8f6e;
       background: transparent;
       color: #3d5c30;
       font-family: 'Cormorant SC', serif;
@@ -375,7 +406,7 @@
       cursor: pointer;
       transition: background 0.2s, color 0.2s;
     }
-    .map-btn:hover { background: #7a9470; color: #fff; }
+    .map-btn:hover { background: #7a8f6e; color: #fff; }
     .map-btn svg { width: 10px; height: 10px; }
     .ldiv { text-align: center; color: #9ab48a; font-size: 1.05rem; line-height: 1; }
 
@@ -416,8 +447,8 @@
 
     /* gift */
     .gbox {
-      background: rgba(255,255,255,0.6);
-      border: 1px solid rgba(140,180,150,0.38);
+      background: rgba(255,255,255,0.66);
+      border: 1px solid rgba(140,180,150,0.35);
       padding: 1.8rem 1.6rem;
       text-align: center;
       width: 100%;
@@ -465,7 +496,7 @@
       width: 100%;
       padding: 0.68rem 0.88rem;
       border: 1px solid rgba(140,180,150,0.48);
-      background: rgba(255,255,255,0.68);
+      background: rgba(255,255,255,0.72);
       font-family: 'Cormorant Garamond', serif;
       font-size: 0.98rem;
       color: #1c1c1c;
@@ -475,20 +506,20 @@
       appearance: none;
       border-radius: 0;
     }
-    .finput:focus, .fselect:focus, .ftextarea:focus { border-color: #7a9470; }
+    .finput:focus, .fselect:focus, .ftextarea:focus { border-color: #7a8f6e; }
     .fselwrap { position: relative; }
     .fselwrap::after {
       content: '▾';
       position: absolute; right: 0.8rem; top: 50%;
       transform: translateY(-50%);
-      color: #7a9470; pointer-events: none; font-size: 0.72rem;
+      color: #7a8f6e; pointer-events: none; font-size: 0.72rem;
     }
     .ftextarea { min-height: 78px; resize: vertical; }
-    .charcount { font-size: 0.57rem; color: #7a9470; text-align: right; }
+    .charcount { font-size: 0.57rem; color: #7a8f6e; text-align: right; }
     .subbtn {
       width: 100%;
       padding: 0.88rem;
-      background: #7a9470;
+      background: #7a8f6e;
       color: #fff;
       border: none;
       font-family: 'Cormorant SC', serif;
@@ -515,78 +546,21 @@
 </head>
 <body>
 
-<!-- audio -->
 <audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
-
-<!-- petals container -->
 <div id="petals"></div>
 
-<!-- botanical SVG corners -->
-<svg class="bc bc-tl" viewBox="0 0 310 390" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M14 7 C48 62 84 145 102 218 C115 258 115 308 94 358" stroke="#527248" stroke-width="1.5" fill="none" opacity="0.72"/>
-  <path d="M27 20 C62 78 92 158 108 232" stroke="#789a6c" stroke-width="1" fill="none" opacity="0.4"/>
-  <ellipse cx="20" cy="26" rx="26" ry="15" fill="#6e8c60" opacity="0.82" transform="rotate(-55 20 26)"/>
-  <ellipse cx="4"  cy="50" rx="22" ry="12" fill="#8aaa7a" opacity="0.68" transform="rotate(-32 4 50)"/>
-  <ellipse cx="50" cy="46" rx="34" ry="14" fill="#88aa78" opacity="0.78" transform="rotate(-40 50 46)"/>
-  <ellipse cx="80" cy="86" rx="38" ry="15" fill="#80a070" opacity="0.72" transform="rotate(22 80 86)"/>
-  <ellipse cx="38" cy="112" rx="32" ry="13" fill="#88a878" opacity="0.70" transform="rotate(-48 38 112)"/>
-  <ellipse cx="114" cy="130" rx="39" ry="15" fill="#86a476" opacity="0.64" transform="rotate(28 114 130)"/>
-  <ellipse cx="48" cy="158" rx="37" ry="14" fill="#8aaa7a" opacity="0.62" transform="rotate(-44 48 158)"/>
-  <ellipse cx="120" cy="176" rx="41" ry="16" fill="#98b888" opacity="0.57" transform="rotate(24 120 176)"/>
-  <ellipse cx="44" cy="204" rx="33" ry="13" fill="#86a476" opacity="0.57" transform="rotate(-47 44 204)"/>
-  <ellipse cx="114" cy="219" rx="39" ry="15" fill="#90b080" opacity="0.52" transform="rotate(22 114 219)"/>
-  <ellipse cx="48" cy="250" rx="31" ry="12" fill="#8aa878" opacity="0.48" transform="rotate(-48 48 250)"/>
-  <ellipse cx="104" cy="262" rx="35" ry="14" fill="#94b084" opacity="0.44" transform="rotate(20 104 262)"/>
-  <ellipse cx="44" cy="290" rx="27" ry="11" fill="#88a878" opacity="0.40" transform="rotate(-44 44 290)"/>
-  <ellipse cx="88"  cy="304" rx="30" ry="12" fill="#92ae82" opacity="0.36" transform="rotate(18 88 304)"/>
-  <ellipse cx="46" cy="330" rx="23" ry="9"  fill="#90ae80" opacity="0.30" transform="rotate(-42 46 330)"/>
-  <ellipse cx="76" cy="342" rx="20" ry="8"  fill="#9cbf8c" opacity="0.24" transform="rotate(15 76 342)"/>
-  <path d="M38 80 C8 104 -8 148 5 188" stroke="#6a8a60" stroke-width="0.9" fill="none" opacity="0.42"/>
-  <ellipse cx="7"  cy="130" rx="21" ry="8" fill="#a2c092" opacity="0.38" transform="rotate(-22 7 130)"/>
-  <ellipse cx="6"  cy="167" rx="19" ry="7.5" fill="#98b488" opacity="0.30" transform="rotate(-16 6 167)"/>
-</svg>
-
-<svg class="bc bc-br" viewBox="0 0 310 390" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M14 7 C48 62 84 145 102 218 C115 258 115 308 94 358" stroke="#527248" stroke-width="1.5" fill="none" opacity="0.66"/>
-  <path d="M27 20 C62 78 92 158 108 232" stroke="#789a6c" stroke-width="1" fill="none" opacity="0.36"/>
-  <ellipse cx="20" cy="26" rx="26" ry="15" fill="#6e8c60" opacity="0.76" transform="rotate(-55 20 26)"/>
-  <ellipse cx="4"  cy="50" rx="22" ry="12" fill="#8aaa7a" opacity="0.62" transform="rotate(-32 4 50)"/>
-  <ellipse cx="50" cy="46" rx="34" ry="14" fill="#88aa78" opacity="0.72" transform="rotate(-40 50 46)"/>
-  <ellipse cx="80" cy="86" rx="38" ry="15" fill="#80a070" opacity="0.66" transform="rotate(22 80 86)"/>
-  <ellipse cx="38" cy="112" rx="32" ry="13" fill="#88a878" opacity="0.64" transform="rotate(-48 38 112)"/>
-  <ellipse cx="114" cy="130" rx="39" ry="15" fill="#86a476" opacity="0.58" transform="rotate(28 114 130)"/>
-  <ellipse cx="48" cy="158" rx="37" ry="14" fill="#8aaa7a" opacity="0.56" transform="rotate(-44 48 158)"/>
-  <ellipse cx="120" cy="176" rx="41" ry="16" fill="#98b888" opacity="0.50" transform="rotate(24 120 176)"/>
-  <ellipse cx="44" cy="204" rx="33" ry="13" fill="#86a476" opacity="0.48" transform="rotate(-47 44 204)"/>
-  <ellipse cx="48" cy="250" rx="31" ry="12" fill="#8aa878" opacity="0.42" transform="rotate(-48 48 250)"/>
-  <ellipse cx="46" cy="330" rx="23" ry="9"  fill="#90ae80" opacity="0.26" transform="rotate(-42 46 330)"/>
-</svg>
-
-<svg class="bc bc-bl" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M10 6 C30 46 55 102 66 158" stroke="#527248" stroke-width="1.2" fill="none" opacity="0.52"/>
-  <ellipse cx="18" cy="20" rx="19" ry="11" fill="#6e8c60" opacity="0.64" transform="rotate(-52 18 20)"/>
-  <ellipse cx="30" cy="36" rx="24" ry="10" fill="#8aaa7a" opacity="0.58" transform="rotate(-42 30 36)"/>
-  <ellipse cx="52" cy="66" rx="28" ry="11" fill="#80a070" opacity="0.53" transform="rotate(20 52 66)"/>
-  <ellipse cx="26" cy="89" rx="22" ry="9"  fill="#88a878" opacity="0.47" transform="rotate(-46 26 89)"/>
-  <ellipse cx="58" cy="107" rx="26" ry="10" fill="#86a476" opacity="0.42" transform="rotate(24 58 107)"/>
-  <ellipse cx="22" cy="128" rx="19" ry="8"  fill="#8aaa7a" opacity="0.34" transform="rotate(-44 22 128)"/>
-</svg>
-
-<svg class="bc bc-tr" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M10 6 C30 46 55 102 66 158" stroke="#527248" stroke-width="1.2" fill="none" opacity="0.46"/>
-  <ellipse cx="18" cy="20" rx="19" ry="11" fill="#6e8c60" opacity="0.58" transform="rotate(-52 18 20)"/>
-  <ellipse cx="30" cy="36" rx="24" ry="10" fill="#8aaa7a" opacity="0.52" transform="rotate(-42 30 36)"/>
-  <ellipse cx="52" cy="66" rx="28" ry="11" fill="#80a070" opacity="0.47" transform="rotate(20 52 66)"/>
-  <ellipse cx="26" cy="89" rx="22" ry="9"  fill="#88a878" opacity="0.40" transform="rotate(-46 26 89)"/>
-  <ellipse cx="58" cy="107" rx="26" ry="10" fill="#86a476" opacity="0.34" transform="rotate(24 58 107)"/>
-</svg>
+<!-- botanical corners using real CDN images -->
+<div class="bc bc-tl"><img src="https://evantocards.com/sites/default/files/media_assets/c604-left-leaf-1.png" alt="" /></div>
+<div class="bc bc-br"><img src="https://evantocards.com/sites/default/files/media_assets/c604-left-leaf-1.png" alt="" /></div>
+<div class="bc bc-bl"><img src="https://evantocards.com/sites/default/files/media_assets/c604-right-leaf-1.png" alt="" /></div>
+<div class="bc bc-tr"><img src="https://evantocards.com/sites/default/files/media_assets/c604-right-leaf-1.png" alt="" /></div>
 
 <!-- ════════════════ SPLASH ════════════════ -->
 <div id="splash">
   <p class="splash-name">Tony</p>
   <span class="splash-amp">&amp;</span>
   <p class="splash-name">Carine</p>
-  <button class="tap-btn" id="tap-start">Tap to Start</button>
+  <button class="tap-btn" id="tap-start">Tap to start</button>
 </div>
 
 <!-- ════════════════ STORY SLIDER ════════════════ -->
@@ -595,25 +569,35 @@
 
     <!-- ── Slide 0: Save the Date ── -->
     <div class="slide">
+      <!-- watercolor title pattern overlay -->
+      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
       <div class="si" style="padding-top:0;">
         <p class="s0-label">Save the Date</p>
 
-        <!-- T&C monogram -->
+        <!-- T&C monogram — arc style matching original -->
         <div class="monogram-wrap">
-          <svg viewBox="0 0 278 278" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="148" cy="136" r="108" stroke="#1c1c1c" stroke-width="0.75" fill="none"/>
-            <text x="60" y="178" font-family="Cormorant Garamond,serif" font-size="134" font-weight="300" fill="#1c1c1c">T</text>
-            <text x="118" y="196" font-family="Pinyon Script,cursive" font-size="116" fill="#1c1c1c">&#38;</text>
-            <text x="166" y="216" font-family="Cormorant Garamond,serif" font-size="100" font-weight="300" fill="#1c1c1c">C</text>
-            <!-- botanical sprig -->
-            <g transform="translate(36,206) rotate(-22)">
-              <path d="M0 0 C5-13 12-25 18-37" stroke="#5a7850" stroke-width="1" fill="none"/>
-              <ellipse cx="4"  cy="-9"  rx="8"   ry="3.4" fill="#8aa87a" opacity="0.80" transform="rotate(-30 4 -9)"/>
-              <ellipse cx="10" cy="-20" rx="9"   ry="3.8" fill="#82a072" opacity="0.74" transform="rotate(22 10 -20)"/>
-              <ellipse cx="16" cy="-31" rx="7.5" ry="3.2" fill="#96b886" opacity="0.66" transform="rotate(-26 16 -31)"/>
-              <path d="M4-8 C-3-17-7-26-4-35" stroke="#5a7850" stroke-width="0.8" fill="none" opacity="0.54"/>
-              <ellipse cx="-1" cy="-17" rx="6.5" ry="2.8" fill="#a2c292" opacity="0.52" transform="rotate(-38 -1 -17)"/>
-              <ellipse cx="-0.5" cy="-28" rx="5.5" ry="2.4" fill="#98b488" opacity="0.44" transform="rotate(-33 -0.5 -28)"/>
+          <svg viewBox="0 0 300 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <!-- Arc: open partial circle (top-right to bottom-left) -->
+            <path d="M 218 58 A 110 110 0 1 0 82 242" stroke="#1c1c1c" stroke-width="0.8" fill="none" opacity="0.85"/>
+            <!-- T -->
+            <text x="52" y="185" font-family="Cormorant Garamond,serif" font-size="148" font-weight="300" fill="#1c1c1c">T</text>
+            <!-- & in Pinyon Script -->
+            <text x="118" y="205" font-family="Pinyon Script,cursive" font-size="128" fill="#1c1c1c">&#38;</text>
+            <!-- C -->
+            <text x="178" y="232" font-family="Cormorant Garamond,serif" font-size="108" font-weight="300" fill="#1c1c1c">C</text>
+            <!-- botanical sprig bottom-left -->
+            <g transform="translate(44,222) rotate(-18)">
+              <path d="M0 0 C4-10 10-22 16-33" stroke="#5a7850" stroke-width="1.1" fill="none"/>
+              <ellipse cx="3.5" cy="-8"  rx="8.5" ry="3.5" fill="#8aa87a" opacity="0.82" transform="rotate(-32 3.5 -8)"/>
+              <ellipse cx="9"   cy="-18" rx="9.5" ry="4"   fill="#82a072" opacity="0.76" transform="rotate(24 9 -18)"/>
+              <ellipse cx="15"  cy="-29" rx="8"   ry="3.4" fill="#96b886" opacity="0.68" transform="rotate(-28 15 -29)"/>
+              <path d="M3.5-7 C-3-16-6-25-3-33" stroke="#5a7850" stroke-width="0.85" fill="none" opacity="0.55"/>
+              <ellipse cx="-1"  cy="-16" rx="7"  ry="3"   fill="#a2c292" opacity="0.54" transform="rotate(-40 -1 -16)"/>
+              <ellipse cx="-0.5" cy="-26" rx="6" ry="2.6" fill="#98b488" opacity="0.45" transform="rotate(-35 -0.5 -26)"/>
+              <!-- berries -->
+              <circle cx="0"  cy="-33" r="1.8" fill="#5a7850" opacity="0.55"/>
+              <circle cx="4"  cy="-36" r="1.5" fill="#6a8a60" opacity="0.48"/>
+              <circle cx="-2" cy="-36" r="1.5" fill="#5a7850" opacity="0.42"/>
             </g>
           </svg>
         </div>
@@ -641,7 +625,7 @@
         </p>
         <p class="s0-ref">1 Corinthians 13:13</p>
 
-        <p class="s0-families">[Groom&rsquo;s Family] &amp; [Bride&rsquo;s Family] families</p>
+        <p class="s0-families">Antoun &amp; Khoury families</p>
         <p class="s0-invite">
           Joyfully invite you to celebrate<br>
           the union of their son and daughter
@@ -656,6 +640,7 @@
 
     <!-- ── Slide 1: The Gathering ── -->
     <div class="slide">
+      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
       <div class="si" style="justify-content:flex-start;">
         <div class="sec-head">
           <span class="sec-pre">Before the Celebration</span>
@@ -688,6 +673,7 @@
 
     <!-- ── Slide 2: The Celebration ── -->
     <div class="slide">
+      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
       <div class="si" style="justify-content:flex-start;">
         <div class="sec-head">
           <span class="sec-pre">August 1, 2026</span>
@@ -722,6 +708,7 @@
 
     <!-- ── Slide 3: Countdown ── -->
     <div class="slide">
+      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
       <div class="si" style="justify-content:center;text-align:center;">
         <div class="sec-head">
           <span class="sec-pre">Counting Down</span>
@@ -741,6 +728,7 @@
 
     <!-- ── Slide 4: Gift Registry ── -->
     <div class="slide">
+      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
       <div class="si" style="justify-content:flex-start;">
         <div class="sec-head">
           <span class="sec-pre">Gift Registry</span>
@@ -763,6 +751,7 @@
 
     <!-- ── Slide 5: RSVP ── -->
     <div class="slide">
+      <img class="title-ptrn" src="https://evantocards.com/sites/default/files/media_assets/c604-title-ptrn1.svg" alt="" />
       <div class="si" style="justify-content:flex-start;">
         <div class="sec-head">
           <span class="sec-pre">Kindly Respond By July 1, 2026</span>
@@ -942,7 +931,7 @@
     const drift = (Math.random() > 0.5 ? '' : '-') + (25 + Math.random() * 65) + 'px';
     const path  = shapes[Math.floor(Math.random() * shapes.length)];
     p.style.cssText = `left:${Math.random()*100}%;--spin:${spin};--drift:${drift};animation-duration:${dur}s;animation-delay:${delay}s;`;
-    p.innerHTML = `<svg width="${sz}" height="${sz}" viewBox="0 0 20 22" fill="none"><path d="${path}" fill="rgba(255,255,255,0.82)" stroke="rgba(195,220,202,0.38)" stroke-width="0.5"/></svg>`;
+    p.innerHTML = `<svg width="${sz}" height="${sz}" viewBox="0 0 20 22" fill="none"><path d="${path}" fill="rgba(255,255,255,0.75)" stroke="rgba(195,220,202,0.35)" stroke-width="0.5"/></svg>`;
     petalsEl.appendChild(p);
     setTimeout(() => p.remove(), (dur + delay) * 1000 + 600);
   }
