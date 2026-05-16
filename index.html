@@ -70,7 +70,7 @@
       max-width: 520px;
       pointer-events: none;
       z-index: 0;
-      opacity: 0.55;
+      opacity: 0.35;
     }
 
     /* ── PETALS ── */
@@ -79,6 +79,7 @@
       pointer-events: none;
       z-index: 2;
       overflow: hidden;
+      opacity: 0.7;
     }
     .petal {
       position: absolute;
@@ -109,7 +110,7 @@
     #splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
     .splash-logo {
-      width: clamp(160px, 45vw, 240px);
+      width: clamp(360px, 55vw, 440px);
       height: auto;
       margin-bottom: 1.8rem;
     }
@@ -221,7 +222,7 @@
     }
     .s0-month {
       font-family: 'Cormorant SC', serif;
-      font-size: clamp(1.05rem, 3vw, 1.3rem);
+      font-size: clamp(1.25rem, 3.5vw, 1.5rem);
       font-weight: 300;
       letter-spacing: 0.58em;
       color: #1c1c1c;
@@ -242,7 +243,7 @@
     .dhr { width: clamp(62px, 17vw, 98px); height: 1px; background: #1c1c1c; }
     .dlbl {
       font-family: 'Cormorant SC', serif;
-      font-size: clamp(1rem, 2.6vw, 1.15rem);
+      font-size: clamp(1.15rem, 3vw, 1.35rem);
       font-weight: 300;
       letter-spacing: 0.3em;
       color: #1c1c1c;
@@ -250,7 +251,7 @@
     }
     .dnum {
       font-family: 'Pinyon Script', cursive;
-      font-size: clamp(5rem, 15vw, 7.2rem);
+      font-size: clamp(5.5rem, 17vw, 8rem);
       line-height: 0.88;
       color: #1c1c1c;
       padding: 0 0.4rem;
@@ -556,7 +557,7 @@
   <img src="logo.png" alt="T &amp; C" class="splash-logo" />
   <p class="splash-invite">You are invited to celebrate the wedding of</p>
   <p class="splash-name">Tony <span class="splash-amp">&amp;</span> Carine</p>
-  <button class="tap-btn" id="tap-start">Tap to start</button>
+  <button class="tap-btn" id="tap-start">Let's go!</button>
 </div>
 
 <!-- ════════════════ STORY SECTIONS ════════════════ -->
@@ -589,7 +590,6 @@
           </div>
         </div>
 
-        <p class="s0-cross">&#x271D;</p>
         <p class="s0-quote">
           And now these three remain:<br>
           <strong>faith, hope and love.</strong><br>
