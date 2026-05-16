@@ -8,11 +8,19 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body {
+    html {
       width: 100%;
       min-height: 100%;
       font-family: 'Cormorant Garamond', serif;
       color: #1c1c1c;
+      scroll-behavior: smooth;
+    }
+    body {
+      width: 100%;
+      min-height: 100%;
+      font-family: 'Cormorant Garamond', serif;
+      color: #1c1c1c;
+      font-size: 1.08rem;
     }
     html.locked, body.locked { overflow: hidden; height: 100%; }
 
@@ -159,25 +167,17 @@
       margin: 0 auto;
       min-height: 100vh;
       position: relative;
-      padding: 3rem 0;
+      padding: 2rem 0;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    /* Mobile: snap each section as its own page */
     @media (max-width: 768px) {
-      html { scroll-snap-type: y proximity; }
       .section {
-        scroll-snap-align: start;
-        min-height: 100vh;
-        padding: 1.5rem 0;
+        min-height: auto;
+        padding: 1.2rem 0;
       }
-    }
-
-    /* Desktop: a little more breathing room around the card column */
-    @media (min-width: 769px) {
-      .section { padding: 4rem 0; }
     }
     .sec-divider {
       width: 100%;
@@ -205,7 +205,7 @@
     ══════════════════════════════ */
     .s0-label {
       font-family: 'Cormorant SC', serif;
-      font-size: clamp(0.68rem, 1.9vw, 0.86rem);
+      font-size: clamp(0.78rem, 2.2vw, 0.96rem);
       font-weight: 300;
       letter-spacing: 0.52em;
       color: #1c1c1c;
@@ -220,7 +220,7 @@
     }
     .s0-month {
       font-family: 'Cormorant SC', serif;
-      font-size: clamp(0.64rem, 1.7vw, 0.78rem);
+      font-size: clamp(0.74rem, 2vw, 0.88rem);
       font-weight: 300;
       letter-spacing: 0.58em;
       color: #1c1c1c;
@@ -241,7 +241,7 @@
     .dhr { width: clamp(62px, 17vw, 98px); height: 1px; background: #1c1c1c; }
     .dlbl {
       font-family: 'Cormorant SC', serif;
-      font-size: clamp(0.57rem, 1.4vw, 0.68rem);
+      font-size: clamp(0.67rem, 1.7vw, 0.78rem);
       font-weight: 300;
       letter-spacing: 0.3em;
       color: #1c1c1c;
@@ -262,7 +262,7 @@
     }
     .s0-quote {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(0.94rem, 2.5vw, 1.1rem);
+      font-size: clamp(1.04rem, 2.8vw, 1.2rem);
       font-weight: 300;
       color: #3a4a36;
       line-height: 1.85;
@@ -274,7 +274,7 @@
     .s0-ref {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: clamp(0.74rem, 1.9vw, 0.86rem);
+      font-size: clamp(0.84rem, 2.2vw, 0.96rem);
       color: #567050;
       margin-bottom: 2rem;
     }
@@ -289,7 +289,7 @@
     }
     .s0-invite {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(0.96rem, 2.5vw, 1.1rem);
+      font-size: clamp(1.06rem, 2.8vw, 1.2rem);
       font-weight: 300;
       color: #3a4a36;
       line-height: 1.75;
@@ -322,7 +322,7 @@
     }
     .sec-pre {
       font-family: 'Cormorant SC', serif;
-      font-size: 0.6rem;
+      font-size: 0.72rem;
       font-weight: 300;
       letter-spacing: 0.45em;
       color: #567050;
@@ -338,7 +338,7 @@
     }
     .sec-sub {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(0.88rem, 2.2vw, 1rem);
+      font-size: clamp(1rem, 2.6vw, 1.12rem);
       font-weight: 300;
       font-style: italic;
       color: #4a6040;
@@ -356,7 +356,7 @@
     }
     .ltype {
       font-family: 'Cormorant SC', serif;
-      font-size: 0.57rem;
+      font-size: 0.68rem;
       font-weight: 400;
       letter-spacing: 0.3em;
       color: #567050;
@@ -364,7 +364,7 @@
     }
     .lname {
       font-family: 'Cormorant SC', serif;
-      font-size: clamp(1rem, 3.2vw, 1.22rem);
+      font-size: clamp(1.1rem, 3.5vw, 1.32rem);
       font-weight: 500;
       letter-spacing: 0.06em;
       color: #1c1c1c;
@@ -372,7 +372,7 @@
     }
     .laddr {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-style: italic;
       font-weight: 300;
       color: #4a5a44;
@@ -380,7 +380,7 @@
     }
     .ltime {
       font-family: 'Cormorant SC', serif;
-      font-size: 0.57rem;
+      font-size: 0.68rem;
       letter-spacing: 0.24em;
       color: #567050;
       margin-bottom: 0.65rem;
@@ -394,7 +394,7 @@
       background: transparent;
       color: #3d5c30;
       font-family: 'Cormorant SC', serif;
-      font-size: 0.55rem;
+      font-size: 0.68rem;
       letter-spacing: 0.22em;
       font-weight: 400;
       text-decoration: none;
@@ -426,7 +426,7 @@
     }
     .cdlbl {
       font-family: 'Cormorant SC', serif;
-      font-size: 0.57rem;
+      font-size: 0.68rem;
       letter-spacing: 0.28em;
       color: #567050;
       margin-top: 0.4rem;
@@ -450,7 +450,7 @@
     }
     .gtext {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(0.9rem, 2.4vw, 1.04rem);
+      font-size: clamp(1rem, 2.7vw, 1.14rem);
       font-weight: 300;
       font-style: italic;
       color: #3a4a36;
@@ -461,14 +461,14 @@
       border-top: 1px solid rgba(140,180,150,0.38);
       padding-top: 1rem;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.88rem;
+      font-size: 1rem;
       font-weight: 300;
       color: #2a3c28;
       line-height: 1.72;
     }
     .gaccount strong {
       font-family: 'Cormorant SC', serif;
-      font-size: 0.57rem;
+      font-size: 0.68rem;
       letter-spacing: 0.3em;
       font-weight: 400;
       color: #567050;
@@ -482,7 +482,7 @@
     .fgroup { margin-bottom: 1.15rem; display: flex; flex-direction: column; gap: 0.33rem; }
     .flabel {
       font-family: 'Cormorant SC', serif;
-      font-size: 0.57rem;
+      font-size: 0.68rem;
       letter-spacing: 0.26em;
       font-weight: 400;
       color: #4a6040;
@@ -493,7 +493,7 @@
       border: 1px solid rgba(140,180,150,0.48);
       background: #fff;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.98rem;
+      font-size: 1.08rem;
       color: #1c1c1c;
       font-weight: 300;
       outline: none;
@@ -510,7 +510,7 @@
       color: #7a8f6e; pointer-events: none; font-size: 0.72rem;
     }
     .ftextarea { min-height: 78px; resize: vertical; }
-    .charcount { font-size: 0.57rem; color: #7a8f6e; text-align: right; }
+    .charcount { font-size: 0.68rem; color: #7a8f6e; text-align: right; }
     .subbtn {
       width: 100%;
       padding: 0.88rem;
@@ -518,7 +518,7 @@
       color: #fff;
       border: none;
       font-family: 'Cormorant SC', serif;
-      font-size: 0.63rem;
+      font-size: 0.74rem;
       letter-spacing: 0.34em;
       font-weight: 400;
       cursor: pointer;
@@ -536,7 +536,7 @@
       letter-spacing: 0.1em;
       margin: 1rem 0 0.5rem;
     }
-    .rsuccess p { font-style: italic; font-weight: 300; color: #4a6040; font-size: 0.98rem; }
+    .rsuccess p { font-style: italic; font-weight: 300; color: #4a6040; font-size: 1.08rem; }
   </style>
 </head>
 <body>
@@ -827,27 +827,36 @@
      produced when you "Deploy → New deployment → Web app". */
   const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz5MzuK6JtfmmVJip3ZPHfwbvMBgrY72rMQhffZ18m95uPaKXYOz1fQ063xnrjt0g34mA/exec';
 
-  document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = this;
+  /* Hidden iframe for reliable Apps Script submission */
+  const rsvpFrame = document.createElement('iframe');
+  rsvpFrame.name = 'rsvp-iframe';
+  rsvpFrame.style.display = 'none';
+  document.body.appendChild(rsvpFrame);
+
+  const rsvpForm = document.getElementById('rsvp-form');
+  rsvpForm.action = RSVP_ENDPOINT;
+  rsvpForm.method = 'POST';
+  rsvpForm.target = 'rsvp-iframe';
+
+  rsvpForm.addEventListener('submit', function() {
     const btn = document.getElementById('subbtn');
     btn.disabled = true; btn.textContent = 'Sending…';
 
-    const data = new URLSearchParams(new FormData(form));
-    data.append('submitted_at', new Date().toISOString());
+    /* Add submitted_at as a hidden field */
+    let tsField = this.querySelector('input[name="submitted_at"]');
+    if (!tsField) {
+      tsField = document.createElement('input');
+      tsField.type = 'hidden';
+      tsField.name = 'submitted_at';
+      this.appendChild(tsField);
+    }
+    tsField.value = new Date().toISOString();
 
-    fetch(RSVP_ENDPOINT, {
-      method: 'POST',
-      body: data,
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    }).then(() => {
-      form.style.display = 'none';
+    /* Show success after a short delay (iframe submit has no callback) */
+    setTimeout(() => {
+      this.style.display = 'none';
       document.getElementById('rsuccess').classList.add('visible');
-    }).catch(() => {
-      btn.disabled = false;
-      btn.textContent = 'Try again';
-    });
+    }, 1500);
   });
 
   /* ── Rising eucalyptus leaves ── */
