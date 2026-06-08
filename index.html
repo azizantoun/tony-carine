@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <title>Tony &amp; Carine — August 1, 2026</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Pinyon+Script&family=Alex+Brush&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -70,24 +70,25 @@
     }
     .sp-invite {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
-      font-weight: 300; font-style: italic;
-      color: var(--muted); margin-bottom: 0.5rem;
+      font-size: clamp(1rem, 2.8vw, 1.15rem);
+      font-weight: 400; font-style: italic;
+      color: var(--text); margin-bottom: 0.5rem;
     }
     .sp-names {
-      font-family: 'Alex Brush', cursive;
-      font-size: clamp(2.8rem, 12vw, 4.6rem);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: clamp(3rem, 13vw, 5rem);
       color: var(--text); line-height: 1.1;
     }
     .sp-amp {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.38em; font-weight: 300;
+      font-size: 0.38em; font-weight: 400;
       color: var(--accent); margin: 0 0.25em;
     }
     .sp-date {
-      font-family: 'Cormorant SC', serif;
-      font-size: clamp(0.6rem, 1.6vw, 0.72rem);
-      font-weight: 300; letter-spacing: 0.36em;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.72rem, 1.8vw, 0.84rem);
+      font-weight: 400; letter-spacing: 0.3em;
       color: var(--muted); margin-top: 0.9rem;
     }
     .tap-btn {
@@ -95,9 +96,10 @@
       padding: 0.82rem 3rem;
       background: var(--accent); color: #fff;
       border: none;
-      font-family: 'Cormorant SC', serif;
-      font-size: clamp(0.62rem, 1.8vw, 0.74rem);
-      letter-spacing: 0.28em; cursor: pointer;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.74rem, 2vw, 0.86rem);
+      font-weight: 500;
+      letter-spacing: 0.22em; cursor: pointer;
       transition: background 0.2s;
     }
     .tap-btn:hover { background: var(--accent2); }
@@ -111,7 +113,6 @@
     }
     #story.visible { opacity: 1; visibility: visible; }
 
-    /* ── SECTION SHELL ── */
     .sec {
       width: 100%; max-width: 680px;
       margin: 0 auto;
@@ -119,11 +120,10 @@
     }
     .sec-center { text-align: center; display: flex; flex-direction: column; align-items: center; }
 
-    /* ── LABEL / TITLE / RULE ── */
     .lbl {
-      font-family: 'Cormorant SC', serif;
-      font-size: clamp(0.56rem, 1.4vw, 0.65rem);
-      font-weight: 400; letter-spacing: 0.38em;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+      font-weight: 500; letter-spacing: 0.28em;
       color: var(--accent); display: block; margin-bottom: 0.5rem;
     }
     .rule {
@@ -132,35 +132,35 @@
       margin: 0.7rem auto;
     }
     h1.hero-title {
-      font-family: 'Cormorant SC', serif;
-      font-size: clamp(3.2rem, 14vw, 7rem);
-      font-weight: 300; letter-spacing: 0.06em;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: clamp(3.4rem, 15vw, 7.5rem);
+      letter-spacing: 0.04em;
       line-height: 1.05; color: #fff;
     }
     h1.hero-title .amp {
-      font-family: 'Pinyon Script', cursive;
-      font-size: 0.65em; font-weight: 400;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: 0.65em;
       letter-spacing: 0; display: block;
-      color: rgba(255,255,255,0.88);
+      color: rgba(255,255,255,0.92);
     }
     h2.sec-title {
-      font-family: 'Pinyon Script', cursive;
-      font-size: clamp(2.4rem, 9vw, 3.6rem);
-      font-weight: 400; color: var(--text);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: clamp(2.6rem, 10vw, 4rem);
+      color: var(--text);
       line-height: 1.1; margin-bottom: 0.3rem;
     }
     .sec-sub {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 2.6vw, 1.15rem);
-      font-weight: 300; font-style: italic;
+      font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+      font-weight: 400; font-style: italic;
       color: var(--muted); line-height: 1.7;
     }
 
-    /* ════════════════════════════
-       HERO
-    ════════════════════════════ */
     #hero {
-      width: 100%; height: 100vh;
+      width: 100%; height: 80vh;
       position: relative; overflow: hidden;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
@@ -171,58 +171,45 @@
       background-image: url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80');
       background-size: cover; background-position: center top;
     }
-    #hero-ov {
-      position: absolute; inset: 0;
-      background: var(--hero-ov);
-    }
-    #hero .hero-inner {
-      position: relative; z-index: 2;
-      padding: 2rem 2rem 4rem;
-    }
+    #hero-ov { position: absolute; inset: 0; background: var(--hero-ov); }
+    #hero .hero-inner { position: relative; z-index: 2; padding: 2rem 2rem 4rem; }
     #hero .hero-loc {
-      font-family: 'Cormorant SC', serif;
-      font-size: clamp(0.58rem, 1.5vw, 0.7rem);
-      font-weight: 300; letter-spacing: 0.42em;
-      color: rgba(255,255,255,0.72);
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.72rem, 1.7vw, 0.84rem);
+      font-weight: 400; letter-spacing: 0.32em;
+      color: rgba(255,255,255,0.88);
       margin-top: 1.2rem;
     }
     .hero-btn {
-      display: inline-block;
-      margin-top: 2.2rem;
+      display: inline-block; margin-top: 2.2rem;
       padding: 0.72rem 2.2rem;
       border: 1px solid rgba(255,255,255,0.7);
-      color: rgba(255,255,255,0.9);
-      font-family: 'Cormorant SC', serif;
-      font-size: clamp(0.58rem, 1.4vw, 0.68rem);
-      letter-spacing: 0.28em; cursor: pointer;
+      color: #fff; font-family: 'Cinzel', serif;
+      font-size: clamp(0.7rem, 1.6vw, 0.82rem); font-weight: 500;
+      letter-spacing: 0.22em; cursor: pointer;
       background: transparent;
       transition: background 0.22s, color 0.22s;
       text-decoration: none;
     }
     .hero-btn:hover { background: rgba(255,255,255,0.15); }
     .hero-logo {
-      position: absolute; top: 1.2rem; left: 1.4rem; z-index: 3;
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.8rem; font-weight: 300;
-      letter-spacing: 0.2em; color: rgba(255,255,255,0.85);
+      position: absolute; top: 1rem; left: 1.2rem; z-index: 3;
+    }
+    .hero-logo img {
+      width: 80px; height: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
     }
 
-    /* ════════════════════════════
-       WELCOME
-    ════════════════════════════ */
     #welcome { background: var(--bg); }
     .welcome-msg {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.3rem, 4vw, 1.9rem);
       font-weight: 300; line-height: 1.65;
-      color: var(--text); text-align: center;
-      max-width: 480px;
+      color: var(--text); text-align: center; max-width: 480px;
     }
     .welcome-sprig { margin-top: 1.4rem; opacity: 0.7; }
 
-    /* ════════════════════════════
-       QUICK INFO STRIP
-    ════════════════════════════ */
     #info-strip {
       background: var(--card);
       border-top: 1px solid var(--border);
@@ -242,7 +229,7 @@
     .info-icon { margin-bottom: 0.9rem; color: var(--accent); }
     .info-icon svg { width: 26px; height: 26px; }
     .info-lbl {
-      font-family: 'Cormorant SC', serif;
+      font-family: 'Cinzel', serif;
       font-size: 0.56rem; font-weight: 400;
       letter-spacing: 0.34em; color: var(--accent);
       margin-bottom: 0.5rem;
@@ -250,13 +237,11 @@
     .info-val {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(0.92rem, 2.4vw, 1.04rem);
-      font-weight: 400; color: var(--text);
-      line-height: 1.5;
+      font-weight: 400; color: var(--text); line-height: 1.5;
     }
     .info-val small {
       display: block; font-style: italic;
-      font-size: 0.85em; color: var(--muted);
-      font-weight: 300;
+      font-size: 0.85em; color: var(--muted); font-weight: 300;
     }
     @media (max-width: 480px) {
       .info-grid { grid-template-columns: 1fr; }
@@ -264,44 +249,33 @@
       .info-col:last-child { border-bottom: none; }
     }
 
-    /* ════════════════════════════
-       OUR DAY TIMELINE
-    ════════════════════════════ */
     #our-day { background: var(--bg); }
     .timeline { width: 100%; margin-top: 2rem; }
     .tl-item {
-      display: flex; gap: 1.4rem;
-      align-items: flex-start;
-      padding-bottom: 2.2rem;
-      position: relative;
+      display: flex; gap: 1.4rem; align-items: flex-start;
+      padding-bottom: 2.2rem; position: relative;
     }
     .tl-item:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      left: 19px; top: 42px;
-      width: 1px; bottom: 0;
+      content: ''; position: absolute;
+      left: 19px; top: 42px; width: 1px; bottom: 0;
       background: var(--border);
     }
     .tl-icon {
       width: 40px; height: 40px; flex-shrink: 0;
-      border: 1px solid var(--border);
-      background: var(--card);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border); background: var(--card);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
       color: var(--accent); position: relative; z-index: 1;
     }
     .tl-icon svg { width: 18px; height: 18px; }
     .tl-body { padding-top: 0.3rem; }
     .tl-time {
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.6rem; letter-spacing: 0.26em;
-      color: var(--accent); font-weight: 400;
+      font-family: 'Cinzel', serif; font-size: 0.6rem;
+      letter-spacing: 0.26em; color: var(--accent); font-weight: 400;
     }
     .tl-event {
-      font-family: 'Cormorant SC', serif;
+      font-family: 'Cinzel', serif;
       font-size: clamp(0.92rem, 2.6vw, 1.08rem);
-      font-weight: 500; color: var(--text);
-      margin: 0.2rem 0 0.15rem;
+      font-weight: 500; color: var(--text); margin: 0.2rem 0 0.15rem;
     }
     .tl-place {
       font-family: 'Cormorant Garamond', serif;
@@ -310,55 +284,36 @@
     }
     .tl-place em { font-style: italic; }
 
-    /* ════════════════════════════
-       VENUES
-    ════════════════════════════ */
     #venues { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .venue-cards { width: 100%; display: flex; flex-direction: column; gap: 1.6rem; margin-top: 2rem; }
     .venue-card {
       display: flex; gap: 1.4rem; align-items: flex-start;
-      padding-bottom: 1.6rem;
-      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.6rem; border-bottom: 1px solid var(--border);
     }
     .venue-card:last-child { border-bottom: none; padding-bottom: 0; }
-    .venue-img {
-      width: 130px; height: 100px; flex-shrink: 0;
-      object-fit: cover; object-position: center;
-    }
+    .venue-img { width: 130px; height: 100px; flex-shrink: 0; object-fit: cover; object-position: center; }
     .venue-info { flex: 1; }
     .venue-type {
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.56rem; letter-spacing: 0.34em;
-      color: var(--accent); font-weight: 400;
-      margin-bottom: 0.4rem;
+      font-family: 'Cinzel', serif; font-size: 0.56rem;
+      letter-spacing: 0.34em; color: var(--accent); font-weight: 400; margin-bottom: 0.4rem;
     }
     .venue-name {
-      font-family: 'Cormorant SC', serif;
-      font-size: clamp(1rem, 3vw, 1.2rem);
-      font-weight: 500; color: var(--text);
-      line-height: 1.25; margin-bottom: 0.3rem;
+      font-family: 'Cinzel', serif; font-size: clamp(1rem, 3vw, 1.2rem);
+      font-weight: 500; color: var(--text); line-height: 1.25; margin-bottom: 0.3rem;
     }
     .venue-loc {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.92rem; font-style: italic;
-      font-weight: 300; color: var(--muted);
-      margin-bottom: 0.7rem;
+      font-family: 'Cormorant Garamond', serif; font-size: 0.92rem;
+      font-style: italic; font-weight: 300; color: var(--muted); margin-bottom: 0.7rem;
     }
     .map-link {
       display: inline-flex; align-items: center; gap: 0.35rem;
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.56rem; letter-spacing: 0.22em;
+      font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.22em;
       color: var(--accent); text-decoration: none;
-      border-bottom: 1px solid rgba(200,122,94,0.3);
-      padding-bottom: 1px;
-      transition: color 0.2s;
+      border-bottom: 1px solid rgba(200,122,94,0.3); padding-bottom: 1px; transition: color 0.2s;
     }
     .map-link:hover { color: var(--accent2); }
     .map-link svg { width: 10px; height: 10px; }
 
-    /* ════════════════════════════
-       GIFTS
-    ════════════════════════════ */
     #gifts { background: var(--bg); }
     .gift-icon { margin-bottom: 1.2rem; color: var(--accent); }
     .gift-icon svg { width: 36px; height: 36px; }
@@ -366,18 +321,8 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1rem, 2.6vw, 1.12rem);
       font-weight: 300; color: var(--muted);
-      line-height: 1.75; text-align: center;
-      max-width: 420px; margin-bottom: 1.8rem;
+      line-height: 1.75; text-align: center; max-width: 420px; margin-bottom: 1.8rem;
     }
-    .gift-btn {
-      padding: 0.8rem 2.8rem;
-      background: var(--accent); color: #fff;
-      border: none;
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.62rem; letter-spacing: 0.3em;
-      cursor: pointer; transition: background 0.2s;
-    }
-    .gift-btn:hover { background: var(--accent2); }
 
     /* ════════════════════════════
        RSVP
@@ -386,33 +331,22 @@
     .rform { width: 100%; margin-top: 1.8rem; }
     .fgroup { margin-bottom: 1.1rem; }
     .flabel {
-      display: block;
-      font-family: 'Cormorant SC', serif;
+      display: block; font-family: 'Cinzel', serif;
       font-size: 0.58rem; letter-spacing: 0.24em;
-      color: var(--accent); font-weight: 400;
-      margin-bottom: 0.4rem;
+      color: var(--accent); font-weight: 400; margin-bottom: 0.4rem;
     }
-    .finput, .fselect, .ftextarea {
+    .ftextarea {
       width: 100%; padding: 0.72rem 0.9rem;
-      border: 1px solid var(--border);
-      background: var(--bg);
+      border: 1px solid var(--border); background: var(--bg);
       font-family: 'Cormorant Garamond', serif;
       font-size: 1rem; color: var(--text);
       font-weight: 300; outline: none;
       appearance: none; border-radius: 0;
       transition: border-color 0.2s;
+      min-height: 80px; resize: vertical;
     }
-    .finput::placeholder, .ftextarea::placeholder { color: #b8b4a4; }
-    .finput:focus, .fselect:focus, .ftextarea:focus { border-color: var(--accent); }
-    .fselwrap { position: relative; }
-    .fselwrap::after {
-      content: '▾'; position: absolute;
-      right: 0.8rem; top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted); pointer-events: none;
-      font-size: 0.8rem;
-    }
-    .ftextarea { min-height: 80px; resize: vertical; }
+    .ftextarea::placeholder { color: #b8b4a4; }
+    .ftextarea:focus { border-color: var(--accent); }
     .char-hint {
       font-family: 'Cormorant Garamond', serif;
       font-size: 0.78rem; color: var(--muted);
@@ -420,122 +354,102 @@
     }
     .subbtn {
       width: 100%; padding: 1rem;
-      background: var(--accent); color: #fff;
-      border: none;
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.65rem; letter-spacing: 0.3em;
-      cursor: pointer; transition: background 0.2s;
-      margin-top: 0.4rem;
+      background: var(--accent); color: #fff; border: none;
+      font-family: 'Cinzel', serif; font-size: 0.65rem;
+      letter-spacing: 0.3em; cursor: pointer; transition: background 0.2s; margin-top: 0.4rem;
     }
     .subbtn:hover { background: var(--accent2); }
-    #rsuccess {
-      display: none; text-align: center;
-      padding: 2rem 0;
-    }
+    #rsuccess { display: none; text-align: center; padding: 2rem 0; }
     #rsuccess.visible { display: block; }
     #rsuccess p {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem; font-style: italic;
-      color: var(--muted); line-height: 1.7;
+      font-size: 1.05rem; font-style: italic; color: var(--muted); line-height: 1.7;
+    }
+    .guest-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.85rem 0.9rem; border: 1px solid var(--border);
+      background: var(--bg); margin-bottom: 0.7rem;
+    }
+    .guest-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 400; color: var(--text);
+    }
+    .guest-check-label {
+      display: flex; align-items: center; gap: 0.45rem; cursor: pointer;
+      font-family: 'Cinzel', serif; font-size: 0.58rem;
+      letter-spacing: 0.22em; color: var(--muted); user-select: none; flex-shrink: 0;
+    }
+    .guest-check { width: 17px; height: 17px; accent-color: var(--accent); cursor: pointer; }
+    .no-link-msg {
+      font-family: 'Cormorant Garamond', serif; font-size: 0.95rem;
+      font-style: italic; color: var(--muted); text-align: center; padding: 1rem 0;
     }
 
-    /* ════════════════════════════
-       CLOSING LANDSCAPE
-    ════════════════════════════ */
     #closing {
       width: 100%; height: 55vw; max-height: 420px;
       position: relative; overflow: hidden;
       display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
+      align-items: center; justify-content: center; text-align: center;
     }
     #closing-bg {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80');
-      background-size: cover; background-position: center;
+      width: 100%; height: 100%; object-fit: cover; object-position: center center;
     }
-    #closing-ov {
-      position: absolute; inset: 0;
-      background: rgba(48,26,18,0.52);
-    }
+    #closing-ov { position: absolute; inset: 0; background: rgba(48,26,18,0.52); }
     .closing-inner { position: relative; z-index: 2; padding: 2rem; }
     .closing-pre {
-      font-family: 'Cormorant SC', serif;
-      font-size: clamp(0.56rem, 1.4vw, 0.66rem);
+      font-family: 'Cinzel', serif; font-size: clamp(0.56rem, 1.4vw, 0.66rem);
       letter-spacing: 0.38em; color: rgba(255,255,255,0.65);
       display: block; margin-bottom: 0.8rem;
     }
     .closing-script {
-      font-family: 'Pinyon Script', cursive;
-      font-size: clamp(2.6rem, 10vw, 5rem);
-      color: #fff; line-height: 1.1;
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+      font-size: clamp(2.6rem, 10vw, 5rem); color: #fff; line-height: 1.1;
     }
     .closing-with {
-      font-family: 'Cormorant SC', serif;
-      font-size: clamp(0.58rem, 1.4vw, 0.68rem);
-      letter-spacing: 0.32em; color: rgba(255,255,255,0.65);
-      margin-top: 0.7rem; display: block;
+      font-family: 'Cinzel', serif; font-size: clamp(0.58rem, 1.4vw, 0.68rem);
+      letter-spacing: 0.32em; color: rgba(255,255,255,0.65); margin-top: 0.7rem; display: block;
     }
 
-    /* ════════════════════════════
-       FOOTER
-    ════════════════════════════ */
     footer {
-      background: var(--accent);
-      color: rgba(255,255,255,0.85);
-      text-align: center;
-      padding: 2.8rem 2rem calc(2.8rem + var(--nav-h));
+      background: var(--accent); color: rgba(255,255,255,0.85);
+      text-align: center; padding: 2.8rem 2rem calc(2.8rem + var(--nav-h));
     }
     footer .ft-mono {
-      font-family: 'Cormorant SC', serif;
-      font-size: 1.1rem; font-weight: 300;
-      letter-spacing: 0.22em; color: #fff;
-      margin-bottom: 0.7rem;
+      font-family: 'Bodoni Moda', serif; font-size: 1.1rem; font-weight: 400;
+      letter-spacing: 0.22em; color: #fff; margin-bottom: 0.7rem;
     }
     footer .ft-sprig { margin-bottom: 1rem; opacity: 0.55; }
     footer .ft-date {
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.58rem; letter-spacing: 0.3em;
-      font-weight: 300; color: rgba(255,255,255,0.7);
-      margin-bottom: 0.3rem;
+      font-family: 'Cinzel', serif; font-size: 0.58rem;
+      letter-spacing: 0.3em; font-weight: 300; color: rgba(255,255,255,0.7); margin-bottom: 0.3rem;
     }
     footer .ft-loc {
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.56rem; letter-spacing: 0.28em;
-      font-weight: 300; color: rgba(255,255,255,0.6);
-      margin-bottom: 1.4rem;
+      font-family: 'Cinzel', serif; font-size: 0.56rem;
+      letter-spacing: 0.28em; font-weight: 300; color: rgba(255,255,255,0.6); margin-bottom: 1.4rem;
     }
     footer .ft-thanks {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.88rem; font-style: italic;
-      font-weight: 300; color: rgba(255,255,255,0.6);
+      font-family: 'Cormorant Garamond', serif; font-size: 0.88rem;
+      font-style: italic; font-weight: 300; color: rgba(255,255,255,0.6);
     }
 
-    /* ════════════════════════════
-       BOTTOM NAV
-    ════════════════════════════ */
     #bottom-nav {
       position: fixed; bottom: 0; left: 0; right: 0;
       height: var(--nav-h); z-index: 100;
-      background: var(--card);
-      border-top: 1px solid var(--border);
+      background: var(--card); border-top: 1px solid var(--border);
       display: flex; align-items: stretch;
     }
     .nav-tab {
       flex: 1; display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      gap: 0.28rem; cursor: pointer;
-      text-decoration: none;
-      color: var(--muted);
-      transition: color 0.2s;
-      border: none; background: none;
+      gap: 0.28rem; cursor: pointer; text-decoration: none;
+      color: var(--muted); transition: color 0.2s; border: none; background: none;
     }
     .nav-tab:hover, .nav-tab.active { color: var(--accent); }
     .nav-tab svg { width: 20px; height: 20px; }
     .nav-tab span {
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.48rem; letter-spacing: 0.2em;
-      font-weight: 400; line-height: 1;
+      font-family: 'Cinzel', serif; font-size: 0.48rem;
+      letter-spacing: 0.2em; font-weight: 400; line-height: 1;
     }
   </style>
 </head>
@@ -544,30 +458,9 @@
 <div id="petals"></div>
 <audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
 
-<!-- ════════════════════════════
-     SPLASH
-════════════════════════════ -->
 <div id="splash">
-  <!-- T&C monogram -->
   <div class="sp-mono">
-    <svg viewBox="0 0 300 310" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="158" cy="145" r="118" stroke="#c87a5e" stroke-width="1.2" fill="none" opacity="0.6"/>
-      <text x="44" y="188" font-family="Cormorant Garamond,serif" font-size="152" font-weight="400" fill="#2c211c">T</text>
-      <text x="162" y="230" font-family="Cormorant Garamond,serif" font-size="118" font-weight="400" fill="#2c211c">C</text>
-      <text x="104" y="218" font-family="Pinyon Script,cursive" font-size="140" fill="#c87a5e" transform="rotate(-8 104 218)">&#38;</text>
-      <g transform="translate(52,252) rotate(-42)">
-        <path d="M0 0 C2-8 5-17 9-27 C13-37 17-50 22-62" stroke="#869468" stroke-width="1.0" fill="none"/>
-        <ellipse cx="6"  cy="-14" rx="9"  ry="3.4" fill="none" stroke="#869468" stroke-width="0.85" transform="rotate(38 6 -14)"/>
-        <ellipse cx="13" cy="-30" rx="10" ry="3.8" fill="none" stroke="#869468" stroke-width="0.85" transform="rotate(35 13 -30)"/>
-        <ellipse cx="18" cy="-46" rx="9"  ry="3.4" fill="none" stroke="#869468" stroke-width="0.85" transform="rotate(32 18 -46)"/>
-        <ellipse cx="-1" cy="-21" rx="8.5" ry="3.2" fill="none" stroke="#869468" stroke-width="0.85" transform="rotate(-42 -1 -21)"/>
-        <ellipse cx="5"  cy="-38" rx="9"  ry="3.4" fill="none" stroke="#869468" stroke-width="0.85" transform="rotate(-38 5 -38)"/>
-        <ellipse cx="10" cy="-54" rx="8"  ry="3.0" fill="none" stroke="#869468" stroke-width="0.85" transform="rotate(-34 10 -54)"/>
-        <circle cx="20" cy="-60" r="2.0" fill="none" stroke="#c87a5e" stroke-width="0.8"/>
-        <circle cx="24" cy="-64" r="1.7" fill="none" stroke="#c87a5e" stroke-width="0.8"/>
-        <circle cx="16" cy="-63" r="1.7" fill="none" stroke="#c87a5e" stroke-width="0.8"/>
-      </g>
-    </svg>
+    <img src="./logo.png" alt="Tony &amp; Carine monogram" style="width:100%;height:100%;object-fit:contain;" />
   </div>
   <p class="sp-invite">You are invited to celebrate the wedding of</p>
   <p class="sp-names">Tony <span class="sp-amp">&amp;</span> Carine</p>
@@ -575,65 +468,47 @@
   <button class="tap-btn" id="tap-start">View Our Day</button>
 </div>
 
-<!-- ════════════════════════════
-     MAIN CONTENT
-════════════════════════════ -->
 <div id="story">
 
-  <!-- HERO -->
   <section id="hero">
     <div id="hero-bg"></div>
     <div id="hero-ov"></div>
-    <div class="hero-logo">T&nbsp;|&nbsp;C</div>
+    <div class="hero-logo"><img src="./logo.png" alt="T&amp;C" /></div>
     <div class="hero-inner">
-      <h1 class="hero-title">
-        Tony
-        <span class="amp">&amp;</span>
-        Carine
-      </h1>
+      <h1 class="hero-title">Tony<span class="amp">&amp;</span>Carine</h1>
       <p class="hero-loc">August 1, 2026 &nbsp;&bull;&nbsp; Araya, Lebanon</p>
       <a href="#welcome" class="hero-btn">View Our Day &#8595;</a>
     </div>
   </section>
 
-  <!-- WELCOME -->
   <section id="welcome">
     <div class="sec sec-center">
       <span class="lbl">We&rsquo;re Getting Married!</span>
       <div class="rule"></div>
       <p class="welcome-msg">We would be honored to celebrate<br>this special day with you.</p>
-      <div class="welcome-sprig">
-        <svg width="52" height="32" viewBox="0 0 52 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M26 30 C26 22 10 18 4 10" stroke="#869468" stroke-width="1" fill="none" opacity="0.5"/>
-          <path d="M26 30 C26 22 42 18 48 10" stroke="#869468" stroke-width="1" fill="none" opacity="0.5"/>
-          <ellipse cx="10" cy="16" rx="7" ry="3" fill="none" stroke="#869468" stroke-width="0.8" opacity="0.5" transform="rotate(-30 10 16)"/>
-          <ellipse cx="18" cy="10" rx="7" ry="2.8" fill="none" stroke="#869468" stroke-width="0.8" opacity="0.45" transform="rotate(-20 18 10)"/>
-          <ellipse cx="42" cy="16" rx="7" ry="3" fill="none" stroke="#869468" stroke-width="0.8" opacity="0.5" transform="rotate(30 42 16)"/>
-          <ellipse cx="34" cy="10" rx="7" ry="2.8" fill="none" stroke="#869468" stroke-width="0.8" opacity="0.45" transform="rotate(20 34 10)"/>
-          <circle cx="26" cy="30" r="2" fill="#c87a5e" opacity="0.6"/>
-        </svg>
-      </div>
+
     </div>
   </section>
 
-  <!-- QUICK INFO STRIP -->
   <section id="info-strip">
     <div class="info-grid">
       <div class="info-col">
         <div class="info-icon">
-          <!-- church -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2v4M10 4h4"/><path d="M3 20V10l9-6 9 6v10H3z"/><rect x="9" y="14" width="6" height="6"/>
           </svg>
         </div>
         <div class="info-lbl">Ceremony</div>
-        <div class="info-val">6:00 PM<small>Notre Dame Church<br>Araya, Lebanon</small></div>
+        <div class="info-val">6:30 PM<small>Notre Dame Church<br>Araya, Lebanon</small></div>
       </div>
       <div class="info-col">
         <div class="info-icon">
-          <!-- glasses clinking -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M8 22l4-10 4 10M6 12l-2-8h4M18 12l2-8h-4M4 4l4 2M20 4l-4 2M12 12v4"/>
+            <path d="M7 2h10l-4 12h-2L7 2z"/>
+            <line x1="12" y1="14" x2="12" y2="20"/>
+            <line x1="9" y1="20" x2="15" y2="20"/>
+            <circle cx="10.5" cy="5.5" r="0.6" fill="currentColor" stroke="none"/>
+            <circle cx="13" cy="8" r="0.6" fill="currentColor" stroke="none"/>
           </svg>
         </div>
         <div class="info-lbl">Celebration</div>
@@ -641,7 +516,6 @@
       </div>
       <div class="info-col">
         <div class="info-icon">
-          <!-- calendar -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
             <circle cx="12" cy="16" r="1.5" fill="currentColor" stroke="none"/>
@@ -653,27 +527,32 @@
     </div>
   </section>
 
-  <!-- OUR DAY -->
   <section id="our-day">
     <div class="sec">
       <span class="lbl" style="display:block;text-align:center;">August 1, 2026</span>
       <h2 class="sec-title" style="text-align:center;">Our Day</h2>
       <div class="rule"></div>
       <div class="timeline" style="margin-top:2.4rem;">
-
         <div class="tl-item">
           <div class="tl-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/><path d="M12 6v6l3 3"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l3 3"/></svg>
           </div>
           <div class="tl-body">
-            <div class="tl-time">5:00 PM</div>
+            <div class="tl-time">3:00 PM</div>
+            <div class="tl-event">Bride&rsquo;s Gathering</div>
+            <div class="tl-place">Le T&eacute;l&eacute;graphe de Belle Vue<br><em>Bhamdoun, Lebanon</em></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l3 3"/></svg>
+          </div>
+          <div class="tl-body">
+            <div class="tl-time">3:00 PM</div>
             <div class="tl-event">Groom&rsquo;s Gathering</div>
             <div class="tl-place">At the Antoun Family Home</div>
           </div>
         </div>
-
         <div class="tl-item">
           <div class="tl-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
@@ -681,16 +560,19 @@
             </svg>
           </div>
           <div class="tl-body">
-            <div class="tl-time">6:00 PM</div>
+            <div class="tl-time">6:30 PM</div>
             <div class="tl-event">Ceremony</div>
             <div class="tl-place">Notre Dame Church<br><em>Araya, Lebanon</em></div>
           </div>
         </div>
-
         <div class="tl-item">
           <div class="tl-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 3l14 9-14 9V3z"/>
+              <path d="M7 2h10l-4 12h-2L7 2z"/>
+              <line x1="12" y1="14" x2="12" y2="20"/>
+              <line x1="9" y1="20" x2="15" y2="20"/>
+              <circle cx="10.5" cy="5.5" r="0.6" fill="currentColor" stroke="none"/>
+              <circle cx="13" cy="8" r="0.6" fill="currentColor" stroke="none"/>
             </svg>
           </div>
           <div class="tl-body">
@@ -699,51 +581,30 @@
             <div class="tl-place">Le T&eacute;l&eacute;graphe de Belle Vue<br><em>Bhamdoun, Lebanon</em></div>
           </div>
         </div>
-
-        <div class="tl-item">
-          <div class="tl-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
-            </svg>
-          </div>
-          <div class="tl-body">
-            <div class="tl-time">Late Night</div>
-            <div class="tl-event">After Party</div>
-            <div class="tl-place"><em>Details to be announced</em></div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- VENUES -->
   <section id="venues">
     <div class="sec">
       <span class="lbl" style="text-align:center;display:block;">Where &amp; When</span>
       <h2 class="sec-title" style="text-align:center;">The Venues</h2>
       <div class="rule"></div>
       <div class="venue-cards">
-
         <div class="venue-card">
-          <img class="venue-img"
-            src="https://images.unsplash.com/photo-1715431773106-4e72a2ea0b28?auto=format&fit=crop&w=400&q=80"
-            alt="Notre Dame Church Araya" />
+          <img class="venue-img" src="./araya-church.jpg" alt="Notre Dame Church Araya" />
           <div class="venue-info">
             <div class="venue-type">Ceremony</div>
             <div class="venue-name">Notre Dame Church</div>
             <div class="venue-loc">Araya, Lebanon</div>
-            <a href="https://maps.google.com/?q=Notre+Dame+Church+Araya+Lebanon" class="map-link" target="_blank">
+            <a href="https://maps.app.goo.gl/VYKzCqVHc2pRwdbB8" class="map-link" target="_blank">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
               View on Map
             </a>
           </div>
         </div>
-
         <div class="venue-card">
-          <img class="venue-img"
-            src="https://letelegraphedebelle-vue.com/wp-content/uploads/2018/10/home1.jpg"
-            alt="Le Télégraphe de Belle Vue" />
+          <img class="venue-img" src="./telegraph.jpg" alt="Le Télégraphe de Belle Vue" />
           <div class="venue-info">
             <div class="venue-type">Celebration</div>
             <div class="venue-name">Le T&eacute;l&eacute;graphe de Belle Vue</div>
@@ -754,12 +615,10 @@
             </a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- GIFTS -->
   <section id="gifts">
     <div class="sec sec-center">
       <div class="gift-icon">
@@ -772,45 +631,20 @@
       <span class="lbl">A Note on Gifts</span>
       <div class="rule"></div>
       <p class="gift-text">Your presence is the greatest gift of all. Should you wish to honor us with something more, a contribution to our future together is warmly appreciated.</p>
-      <button class="gift-btn">Bank Details</button>
+      <p class="gift-text" style="font-size:clamp(0.85rem,2.2vw,0.98rem);color:var(--text);line-height:2;">
+        IBAN: XXXXX<br>SWIFT: XXXXX
+      </p>
     </div>
   </section>
 
-  <!-- RSVP -->
   <section id="rsvp">
     <div class="sec sec-center">
       <span class="lbl">Kindly Respond By July 1, 2026</span>
       <h2 class="sec-title">RSVP</h2>
       <div class="rule"></div>
       <p class="sec-sub" style="margin-bottom:0;">Please let us know if you will be joining us.</p>
-
       <form id="rsvp-form" class="rform">
-        <div class="fgroup">
-          <label class="flabel" for="gname">Full Name</label>
-          <input class="finput" type="text" id="gname" name="name" placeholder="Enter your full name" required />
-        </div>
-        <div class="fgroup">
-          <label class="flabel" for="attendance">Will You Attend?</label>
-          <div class="fselwrap">
-            <select class="fselect" id="attendance" name="attendance" required>
-              <option value="" disabled selected>Select an option</option>
-              <option value="yes">Joyfully accepts</option>
-              <option value="no">Regretfully declines</option>
-            </select>
-          </div>
-        </div>
-        <div class="fgroup" id="gcg">
-          <label class="flabel" for="gcount">Number of Guests</label>
-          <div class="fselwrap">
-            <select class="fselect" id="gcount" name="guest_count">
-              <option value="1">1 guest</option>
-              <option value="2">2 guests</option>
-              <option value="3">3 guests</option>
-              <option value="4">4 guests</option>
-              <option value="5">5+ guests</option>
-            </select>
-          </div>
-        </div>
+        <div id="rsvp-guests"></div>
         <div class="fgroup">
           <label class="flabel" for="wishes">Your Wishes for the Couple <span style="letter-spacing:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:0.82rem;">(optional)</span></label>
           <textarea class="ftextarea" id="wishes" name="wishes" maxlength="120" placeholder="Share your warmest wishes…"></textarea>
@@ -818,16 +652,14 @@
         </div>
         <button type="submit" class="subbtn" id="subbtn">Send RSVP</button>
       </form>
-
       <div id="rsuccess">
         <p>Thank you! We have received your RSVP<br>and can&rsquo;t wait to celebrate with you.</p>
       </div>
     </div>
   </section>
 
-  <!-- CLOSING LANDSCAPE -->
   <div id="closing">
-    <div id="closing-bg"></div>
+    <img id="closing-bg" src="./tony-carine-background.jpeg" alt="" />
     <div id="closing-ov"></div>
     <div class="closing-inner">
       <span class="closing-pre">We can&rsquo;t wait to</span>
@@ -836,25 +668,16 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="ft-mono">T &nbsp;|&nbsp; C</div>
-    <div class="ft-sprig">
-      <svg width="40" height="22" viewBox="0 0 40 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 20 C20 14 8 11 3 5" stroke="rgba(255,255,255,0.4)" stroke-width="0.9" fill="none"/>
-        <path d="M20 20 C20 14 32 11 37 5" stroke="rgba(255,255,255,0.4)" stroke-width="0.9" fill="none"/>
-        <ellipse cx="8" cy="10" rx="6" ry="2.4" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.7" transform="rotate(-28 8 10)"/>
-        <ellipse cx="32" cy="10" rx="6" ry="2.4" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.7" transform="rotate(28 32 10)"/>
-      </svg>
-    </div>
+    <img src="./logo-white.png" alt="Tony &amp; Carine" style="width:80px;height:80px;object-fit:contain;opacity:0.92;margin-bottom:0.7rem;" />
+
     <div class="ft-date">August 1, 2026</div>
     <div class="ft-loc">Araya &amp; Bhamdoun, Lebanon</div>
     <div class="ft-thanks">Thank you for being part of our story.</div>
   </footer>
 
-</div><!-- #story -->
+</div>
 
-<!-- BOTTOM NAV -->
 <nav id="bottom-nav">
   <a class="nav-tab" href="#our-day">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -885,93 +708,141 @@
 </nav>
 
 <script>
-  /* ── splash ── */
+  /* splash */
   document.documentElement.classList.add('locked');
   document.body.classList.add('locked');
-  document.getElementById('tap-start').addEventListener('click', () => {
+  document.getElementById('tap-start').addEventListener('click', function () {
     document.getElementById('splash').classList.add('hidden');
     document.getElementById('story').classList.add('visible');
     document.documentElement.classList.remove('locked');
     document.body.classList.remove('locked');
-    const music = document.getElementById('bg-music');
+    var music = document.getElementById('bg-music');
     music.volume = 0.4;
-    music.play().catch(() => {});
+    music.play().catch(function () {});
     window.scrollTo({ top: 0, behavior: 'instant' });
   });
 
-  /* ── attendance toggle ── */
-  document.getElementById('attendance').addEventListener('change', function () {
-    document.getElementById('gcg').style.display = this.value === 'no' ? 'none' : '';
-  });
-
-  /* ── char counter ── */
+  /* char counter */
   document.getElementById('wishes').addEventListener('input', function () {
     document.getElementById('char-count').textContent = 120 - this.value.length;
   });
 
-  /* ── RSVP submit ── */
-  const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz5MzuK6JtfmmVJip3ZPHfwbvMBgrY72rMQhffZ18m95uPaKXYOz1fQ063xnrjt0g34mA/exec';
-  document.getElementById('rsvp-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const btn = document.getElementById('subbtn');
-    btn.disabled = true; btn.textContent = 'Sending…';
-    const data = new FormData(this);
-    data.append('submitted_at', new Date().toISOString());
-    fetch(RSVP_ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' })
-      .then(() => {
-        this.style.display = 'none';
-        document.getElementById('rsuccess').classList.add('visible');
-      })
-      .catch(() => { btn.disabled = false; btn.textContent = 'Try again'; });
-  });
+  /* RSVP: build guest rows from URL params and submit each separately */
+  (function () {
+    var ENDPOINT = 'https://script.google.com/macros/s/AKfycbz5MzuK6JtfmmVJip3ZPHfwbvMBgrY72rMQhffZ18m95uPaKXYOz1fQ063xnrjt0g34mA/exec';
+    var params = new URLSearchParams(window.location.search);
+    var names = [params.get('name'), params.get('name2')].filter(Boolean);
+    var container = document.getElementById('rsvp-guests');
 
-  /* ── active nav tab on scroll ── */
-  const sections = ['our-day', 'venues', 'rsvp', 'gifts'];
-  const tabs = document.querySelectorAll('.nav-tab');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(en => {
+    function esc(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    if (names.length === 0) {
+      container.innerHTML =
+        '<div class="fgroup">' +
+        '<label class="flabel" for="manual-name">Your Name</label>' +
+        '<input class="ftextarea" type="text" id="manual-name" placeholder="Enter your full name" style="min-height:0;padding:0.72rem 0.9rem;resize:none;" />' +
+        '</div>';
+    } else {
+      names.forEach(function (name) {
+        var row = document.createElement('div');
+        row.className = 'guest-row fgroup';
+        row.innerHTML =
+          '<span class="guest-name">' + esc(name) + '</span>' +
+          '<label class="guest-check-label">' +
+          '<input type="checkbox" class="guest-check" data-name="' + esc(name) + '" />' +
+          '<span>Will attend</span></label>';
+        container.appendChild(row);
+      });
+    }
+
+    document.getElementById('rsvp-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = document.getElementById('subbtn');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      var wishes = document.getElementById('wishes').value;
+      var ts = new Date().toISOString();
+      var form = this;
+      var checkboxes = document.querySelectorAll('.guest-check');
+      var submissions;
+      if (checkboxes.length > 0) {
+        submissions = Array.from(checkboxes).map(function (cb) {
+          var data = new FormData();
+          data.append('name', cb.dataset.name);
+          data.append('attendance', cb.checked ? 'yes' : 'no');
+          data.append('wishes', wishes);
+          data.append('submitted_at', ts);
+          return fetch(ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' });
+        });
+      } else {
+        var manualName = (document.getElementById('manual-name') || {}).value || '';
+        if (!manualName.trim()) {
+          document.getElementById('manual-name').focus();
+          btn.disabled = false;
+          btn.textContent = 'Send RSVP';
+          return;
+        }
+        var data = new FormData();
+        data.append('name', manualName.trim());
+        data.append('attendance', 'yes');
+        data.append('wishes', wishes);
+        data.append('submitted_at', ts);
+        submissions = [fetch(ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' })];
+      }
+      Promise.all(submissions)
+        .then(function () {
+          form.style.display = 'none';
+          document.getElementById('rsuccess').classList.add('visible');
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = 'Try again';
+        });
+    });
+  })();
+
+  /* active nav tab on scroll */
+  var sections = ['our-day', 'venues', 'rsvp', 'gifts'];
+  var tabs = document.querySelectorAll('.nav-tab');
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
       if (en.isIntersecting) {
-        tabs.forEach(t => t.classList.remove('active'));
-        const match = document.querySelector(`.nav-tab[href="#${en.target.id}"]`);
+        tabs.forEach(function (t) { t.classList.remove('active'); });
+        var match = document.querySelector('.nav-tab[href="#' + en.target.id + '"]');
         if (match) match.classList.add('active');
       }
     });
   }, { threshold: 0.4 });
-  sections.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
+  sections.forEach(function (id) { var el = document.getElementById(id); if (el) obs.observe(el); });
 
-  /* ── rising eucalyptus leaves ── */
-  const petalsEl = document.getElementById('petals');
-  const shapes = [
+  /* rising leaves */
+  var petalsEl = document.getElementById('petals');
+  var shapes = [
     'M10 1 C12 4 13 9 12 15 C11 19 10 23 10 23 C10 23 9 19 8 15 C7 9 8 4 10 1Z',
     'M10 2 C14 3 17 7 17 12 C17 17 14 21 10 22 C6 21 3 17 3 12 C3 7 6 3 10 2Z',
     'M10 1 C14 2 17 6 16 12 C15 18 12 22 10 23 C8 22 5 17 5 12 C5 6 7 1 10 1Z',
     'M10 0 C11 4 12 10 11 17 C10.5 20 10 24 10 24 C10 24 9.5 20 9 17 C8 10 9 4 10 0Z'
   ];
   function makeLeaf() {
-    const p = document.createElement('div');
+    var p = document.createElement('div');
     p.className = 'petal';
-    const dur = 10 + Math.random() * 14;
-    const delay = Math.random() * 10;
-    const sz = 12 + Math.random() * 14;
-    const spin = (Math.random() > 0.5 ? '' : '-') + (120 + Math.random() * 240) + 'deg';
-    const drift = (Math.random() > 0.5 ? '' : '-') + (20 + Math.random() * 55) + 'px';
-    const path = shapes[Math.floor(Math.random() * shapes.length)];
-    // bouquet tones: peach, coral, blush pink, butter yellow, sage greenery
-    const palette = [
-      [232, 165, 130], // peach
-      [200, 122, 94],  // coral / terracotta
-      [225, 142, 150], // blush pink
-      [233, 196, 130], // butter yellow
-      [134, 148, 104], // sage greenery
-    ];
-    const c = palette[Math.floor(Math.random() * palette.length)];
-    const a = (0.4 + Math.random() * 0.3).toFixed(2);
-    p.style.cssText = `left:${Math.random()*100}%;--spin:${spin};--drift:${drift};animation-duration:${dur}s;animation-delay:${delay}s;`;
-    p.innerHTML = `<svg width="${sz}" height="${sz}" viewBox="0 0 20 24" fill="none"><path d="${path}" fill="rgba(${c[0]},${c[1]},${c[2]},${a})" stroke="rgba(${c[0]},${c[1]},${c[2]},0.25)" stroke-width="0.6"/></svg>`;
+    var dur = 10 + Math.random() * 14;
+    var delay = Math.random() * 10;
+    var sz = 12 + Math.random() * 14;
+    var spin = (Math.random() > 0.5 ? '' : '-') + (120 + Math.random() * 240) + 'deg';
+    var drift = (Math.random() > 0.5 ? '' : '-') + (20 + Math.random() * 55) + 'px';
+    var path = shapes[Math.floor(Math.random() * shapes.length)];
+    var palette = [[232,165,130],[200,122,94],[225,142,150],[233,196,130],[134,148,104]];
+    var c = palette[Math.floor(Math.random() * palette.length)];
+    var a = (0.4 + Math.random() * 0.3).toFixed(2);
+    p.style.cssText = 'left:' + (Math.random()*100) + '%;--spin:' + spin + ';--drift:' + drift + ';animation-duration:' + dur + 's;animation-delay:' + delay + 's;';
+    p.innerHTML = '<svg width="' + sz + '" height="' + sz + '" viewBox="0 0 20 24" fill="none"><path d="' + path + '" fill="rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')" stroke="rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0.25)" stroke-width="0.6"/></svg>';
     petalsEl.appendChild(p);
-    setTimeout(() => p.remove(), (dur + delay) * 1000 + 600);
+    setTimeout(function () { p.remove(); }, (dur + delay) * 1000 + 600);
   }
-  for (let i = 0; i < 18; i++) setTimeout(makeLeaf, i * 650);
+  for (var i = 0; i < 18; i++) setTimeout(makeLeaf, i * 650);
   setInterval(makeLeaf, 900);
 </script>
 </body>
