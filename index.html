@@ -4,6 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <title>Tony &amp; Carine — August 1, 2026</title>
+  <meta name="description" content="You are invited to celebrate the wedding of Tony &amp; Carine on August 1, 2026 in Araya &amp; Bhamdoun, Lebanon." />
+  <meta name="theme-color" content="#c87a5e" />
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR-DOMAIN.com/" />
+  <meta property="og:title" content="Tony &amp; Carine — August 1, 2026" />
+  <meta property="og:description" content="You are invited to celebrate the wedding of Tony &amp; Carine on August 1, 2026 in Araya &amp; Bhamdoun, Lebanon." />
+  <meta property="og:image" content="https://YOUR-DOMAIN.com/header-background.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Tony &amp; Carine Wedding" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tony &amp; Carine — August 1, 2026" />
+  <meta name="twitter:description" content="You are invited to celebrate the wedding of Tony &amp; Carine on August 1, 2026 in Araya &amp; Bhamdoun, Lebanon." />
+  <meta name="twitter:image" content="https://YOUR-DOMAIN.com/header-background.jpg" />
+
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -140,14 +160,14 @@
       font-style: italic; font-weight: 400;
       font-size: clamp(3.4rem, 15vw, 7.5rem);
       letter-spacing: 0.04em;
-      line-height: 1.05; color: #fff;
+      line-height: 1.05; color: var(--text);
     }
     h1.hero-title .amp {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic; font-weight: 400;
       font-size: 0.65em;
       letter-spacing: 0; display: block;
-      color: rgba(255,255,255,0.92);
+      color: var(--accent2); margin: 0.15em 0;
     }
     h2.sec-title {
       font-family: 'Cormorant Garamond', serif;
@@ -175,13 +195,13 @@
       background-image: url('./header-background.jpg');
       background-size: cover; background-position: center top;
     }
-    #hero-ov { position: absolute; inset: 0; background: var(--hero-ov); }
+    #hero-ov { position: absolute; inset: 0; }
     #hero .hero-inner { position: relative; z-index: 2; padding: 2rem 2rem 4rem; }
     #hero .hero-loc {
       font-family: 'Cinzel', serif;
       font-size: clamp(0.72rem, 1.7vw, 0.84rem);
       font-weight: 400; letter-spacing: 0.32em;
-      color: rgba(255,255,255,0.88);
+      color: var(--text);
       margin-top: 1.2rem;
     }
     .hero-btn {
@@ -194,8 +214,9 @@
       background: transparent;
       transition: background 0.22s, color 0.22s;
       text-decoration: none;
+      background-color:var(--accent)
     }
-    .hero-btn:hover { background: rgba(255,255,255,0.15); }
+    .hero-btn:hover { background:var(--accent2) }
     .hero-logo {
       position: absolute; top: 1rem; left: 1.2rem; z-index: 3;
     }
@@ -425,11 +446,11 @@
     }
     footer .ft-sprig { margin-bottom: 1rem; opacity: 0.55; }
     footer .ft-date {
-      font-family: 'Cinzel', serif; font-size: 0.58rem;
+      font-family: 'Cinzel', serif; font-size: 0.7rem;
       letter-spacing: 0.3em; font-weight: 300; color: rgba(255,255,255,0.7); margin-bottom: 0.3rem;
     }
     footer .ft-loc {
-      font-family: 'Cinzel', serif; font-size: 0.56rem;
+      font-family: 'Cinzel', serif; font-size: 0.7rem;
       letter-spacing: 0.28em; font-weight: 300; color: rgba(255,255,255,0.6); margin-bottom: 1.4rem;
     }
     footer .ft-thanks {
@@ -481,7 +502,7 @@
     <div class="hero-inner">
       <h1 class="hero-title">Tony<span class="amp">&amp;</span>Carine</h1>
       <p class="hero-loc">August 1, 2026 &nbsp;&bull;&nbsp; Araya, Lebanon</p>
-      <a href="#welcome" class="hero-btn">View Our Day &#8595;</a>
+      <a href="#welcome" class="hero-btn">Scroll for more &#8595;</a>
     </div>
   </section>
 
