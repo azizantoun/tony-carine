@@ -226,14 +226,17 @@
       opacity: 0.9;
     }
 
-    #welcome { background: var(--bg); }
-    .welcome-msg {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem, 4vw, 1.9rem);
-      font-weight: 300; line-height: 1.65;
-      color: var(--text); text-align: center; max-width: 480px;
+    .day-intro {
+      text-align: center;
+      margin-bottom: 2.8rem;
     }
-    .welcome-sprig { margin-top: 1.4rem; opacity: 0.7; }
+    .day-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 2.8vw, 1.25rem);
+      font-weight: 400; font-style: italic;
+      color: var(--muted); line-height: 1.7;
+      max-width: 400px; margin: 0.8rem auto 0;
+    }
 
     #info-strip {
       background: var(--card);
@@ -275,37 +278,55 @@
     }
 
     #our-day { background: var(--bg); }
-    .timeline { width: 100%; margin-top: 2rem; }
-    .tl-item {
-      display: flex; gap: 1.4rem; align-items: flex-start;
-      padding-bottom: 2.2rem; position: relative;
+    .timeline {
+      width: 100%; position: relative;
     }
-    .tl-item:not(:last-child)::after {
+    .timeline::before {
       content: ''; position: absolute;
-      left: 19px; top: 42px; width: 1px; bottom: 0;
+      left: 50%; top: 0; bottom: 0; width: 1px;
       background: var(--border);
+      transform: translateX(-50%);
     }
-    .tl-icon {
-      width: 40px; height: 40px; flex-shrink: 0;
-      border: 1px solid var(--border); background: var(--card);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    .tl-item {
+      display: grid;
+      grid-template-columns: 1fr 38px 1fr;
+      align-items: center;
+      padding: 1.6rem 0;
+    }
+    .tl-dot {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border); background: var(--bg);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
       color: var(--accent); position: relative; z-index: 1;
+      margin: 0 auto;
     }
-    .tl-icon svg { width: 18px; height: 18px; }
-    .tl-body { padding-top: 0.3rem; }
+    .tl-dot svg { width: 16px; height: 16px; }
+    .tl-spacer {}
+    .tl-content-left {
+      text-align: right;
+      padding-right: 1.6rem;
+    }
+    .tl-content-right {
+      text-align: left;
+      padding-left: 1.6rem;
+    }
     .tl-time {
-      font-family: 'Cinzel', serif; font-size: 0.6rem;
-      letter-spacing: 0.26em; color: var(--accent); font-weight: 400;
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem; letter-spacing: 0.2em;
+      color: var(--accent); font-weight: 500;
+      display: block; margin-bottom: 0.2rem;
     }
     .tl-event {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(0.92rem, 2.6vw, 1.08rem);
-      font-weight: 500; color: var(--text); margin: 0.2rem 0 0.15rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+      font-weight: 400; color: var(--text);
+      margin-bottom: 0.15rem; line-height: 1.2;
     }
     .tl-place {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(0.88rem, 2.2vw, 0.98rem);
-      font-weight: 300; color: var(--muted);
+      font-weight: 400; color: var(--muted); line-height: 1.45;
     }
     .tl-place em { font-style: italic; }
 
@@ -502,20 +523,11 @@
     <div class="hero-inner">
       <h1 class="hero-title">Tony<span class="amp">&amp;</span>Carine</h1>
       <p class="hero-loc">August 1, 2026 &nbsp;&bull;&nbsp; Araya, Lebanon</p>
-      <a href="#welcome" class="hero-btn">Scroll for more &#8595;</a>
+      <a href="#our-day" class="hero-btn">Scroll for more &#8595;</a>
     </div>
   </section>
 
-  <section id="welcome">
-    <div class="sec sec-center">
-      <span class="lbl">We&rsquo;re Getting Married!</span>
-      <div class="rule"></div>
-      <p class="welcome-msg">We would be honored to celebrate<br>this special day with you.</p>
-
-    </div>
-  </section>
-
-  <section id="info-strip">
+  <!-- <section id="info-strip">
     <div class="info-grid">
       <div class="info-col">
         <div class="info-icon">
@@ -550,48 +562,63 @@
         <div class="info-val">July 1, 2026<small>Kindly respond<br>by this date</small></div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <section id="our-day">
     <div class="sec">
-      <span class="lbl" style="display:block;text-align:center;">August 1, 2026</span>
-      <h2 class="sec-title" style="text-align:center;">Our Day</h2>
-      <div class="rule"></div>
-      <div class="timeline" style="margin-top:2.4rem;">
+      <div class="day-intro">
+        <!-- <span class="lbl">We&rsquo;re Getting Married</span> -->
+        <h2 class="sec-title">Our Day</h2>
+        <div class="rule"></div>
+        <p class="day-quote">We can&rsquo;t wait to share every moment of it with you.</p>
+      </div>
+      <div class="timeline">
+
+        <!-- Bride's Gathering — LEFT -->
         <div class="tl-item">
-          <div class="tl-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l3 3"/></svg>
-          </div>
-          <div class="tl-body">
-            <div class="tl-time">3:00 PM</div>
+          <div class="tl-content-left">
+            <span class="tl-time">3:00 PM</span>
             <div class="tl-event">Bride&rsquo;s Gathering</div>
             <div class="tl-place">Le T&eacute;l&eacute;graphe de Belle Vue<br><em>Bhamdoun, Lebanon</em></div>
           </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-icon">
+          <div class="tl-dot">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l3 3"/></svg>
           </div>
-          <div class="tl-body">
-            <div class="tl-time">3:00 PM</div>
+          <div class="tl-spacer"></div>
+        </div>
+
+        <!-- Groom's Gathering — RIGHT -->
+        <div class="tl-item">
+          <div class="tl-spacer"></div>
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l3 3"/></svg>
+          </div>
+          <div class="tl-content-right">
+            <span class="tl-time">5:00 PM</span>
             <div class="tl-event">Groom&rsquo;s Gathering</div>
             <div class="tl-place">At the Antoun Family Home</div>
           </div>
         </div>
+
+        <!-- Ceremony — LEFT -->
         <div class="tl-item">
-          <div class="tl-icon">
+          <div class="tl-content-left">
+            <span class="tl-time">6:30 PM</span>
+            <div class="tl-event">Ceremony</div>
+            <div class="tl-place">Notre Dame Church<br><em>Araya, Lebanon</em></div>
+          </div>
+          <div class="tl-dot">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2v4M10 4h4"/><path d="M3 20V10l9-6 9 6v10H3z"/><rect x="9" y="14" width="6" height="6"/>
             </svg>
           </div>
-          <div class="tl-body">
-            <div class="tl-time">6:30 PM</div>
-            <div class="tl-event">Ceremony</div>
-            <div class="tl-place">Notre Dame Church<br><em>Araya, Lebanon</em></div>
-          </div>
+          <div class="tl-spacer"></div>
         </div>
+
+        <!-- Celebration — RIGHT -->
         <div class="tl-item">
-          <div class="tl-icon">
+          <div class="tl-spacer"></div>
+          <div class="tl-dot">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
               <path d="M7 2h10l-4 12h-2L7 2z"/>
               <line x1="12" y1="14" x2="12" y2="20"/>
@@ -600,12 +627,13 @@
               <circle cx="13" cy="8" r="0.6" fill="currentColor" stroke="none"/>
             </svg>
           </div>
-          <div class="tl-body">
-            <div class="tl-time">8:00 PM</div>
+          <div class="tl-content-right">
+            <span class="tl-time">8:00 PM</span>
             <div class="tl-event">Celebration</div>
             <div class="tl-place">Le T&eacute;l&eacute;graphe de Belle Vue<br><em>Bhamdoun, Lebanon</em></div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
