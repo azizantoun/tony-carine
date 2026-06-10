@@ -52,7 +52,6 @@
       background: var(--bg);
       padding-bottom: var(--nav-h);
     }
-    html.locked, body.locked { overflow: hidden; height: 100%; }
 
     /* ── PETALS ── */
     #petals {
@@ -74,16 +73,14 @@
        SPLASH
     ════════════════════════════ */
     #splash {
-      position: fixed; inset: 0; z-index: 200;
+      width: 100%; min-height: 100vh;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       text-align: center; padding: 2.5rem 2rem;
       background: url('./header-background.jpg') center/cover no-repeat;
-      transition: opacity 0.85s ease, visibility 0.85s ease;
     }
 
     #splash > * { position: relative; z-index: 1; }
-    #splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
     .sp-mono {
       width: clamp(180px, 50vw, 240px);
@@ -128,15 +125,6 @@
     }
     .tap-btn:hover { background: var(--accent2); }
 
-    /* ════════════════════════════
-       MAIN WRAPPER
-    ════════════════════════════ */
-    #story {
-      opacity: 0; visibility: hidden;
-      transition: opacity 0.6s ease 0.1s, visibility 0.6s ease 0.1s;
-    }
-    #story.visible { opacity: 1; visibility: visible; }
-
     .sec {
       width: 100%; max-width: 680px;
       margin: 0 auto;
@@ -155,20 +143,6 @@
       background: var(--accent2); opacity: 0.5;
       margin: 0.7rem auto;
     }
-    h1.hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-weight: 400;
-      font-size: clamp(3.4rem, 15vw, 7.5rem);
-      letter-spacing: 0.04em;
-      line-height: 1.05; color: var(--text);
-    }
-    h1.hero-title .amp {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-weight: 400;
-      font-size: 0.65em;
-      letter-spacing: 0; display: block;
-      color: var(--accent2); margin: 0.15em 0;
-    }
     h2.sec-title {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic; font-weight: 400;
@@ -181,49 +155,6 @@
       font-size: clamp(1.05rem, 2.8vw, 1.2rem);
       font-weight: 400; font-style: italic;
       color: var(--muted); line-height: 1.7;
-    }
-
-    #hero {
-      width: 100%; height: 80vh;
-      position: relative; overflow: hidden;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-    }
-    #hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('./header-background.jpg');
-      background-size: cover; background-position: center top;
-    }
-    #hero-ov { position: absolute; inset: 0; }
-    #hero .hero-inner { position: relative; z-index: 2; padding: 2rem 2rem 4rem; }
-    #hero .hero-loc {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(0.72rem, 1.7vw, 0.84rem);
-      font-weight: 400; letter-spacing: 0.32em;
-      color: var(--text);
-      margin-top: 1.2rem;
-    }
-    .hero-btn {
-      display: inline-block; margin-top: 2.2rem;
-      padding: 0.72rem 2.2rem;
-      border: 1px solid rgba(255,255,255,0.7);
-      color: #fff; font-family: 'Cinzel', serif;
-      font-size: clamp(0.7rem, 1.6vw, 0.82rem); font-weight: 500;
-      letter-spacing: 0.22em; cursor: pointer;
-      background: transparent;
-      transition: background 0.22s, color 0.22s;
-      text-decoration: none;
-      background-color:var(--accent)
-    }
-    .hero-btn:hover { background:var(--accent2) }
-    .hero-logo {
-      position: absolute; top: 1rem; left: 1.2rem; z-index: 3;
-    }
-    .hero-logo img {
-      width: 100px; height: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.9;
     }
 
     .day-intro {
@@ -504,27 +435,17 @@
 <div id="petals"></div>
 <audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
 
-<div id="splash">
-  <div class="sp-mono">
-    <img src="./logo.png" alt="Tony &amp; Carine monogram" style="width:100%;height:100%;object-fit:contain;" />
-  </div>
-  <p class="sp-invite">You are invited to celebrate the wedding of</p>
-  <p class="sp-names">Tony <span class="sp-amp">&amp;</span> Carine</p>
-  <p class="sp-date">August 1, 2026 &nbsp;&bull;&nbsp; Araya, Lebanon</p>
-  <button class="tap-btn" id="tap-start">View Our Day</button>
-</div>
-
 <div id="story">
 
-  <section id="hero">
-    <div id="hero-bg"></div>
-    <div id="hero-ov"></div>
-    <div class="hero-logo"><img src="./logo.png" alt="T&amp;C" /></div>
-    <div class="hero-inner">
-      <h1 class="hero-title">Tony<span class="amp">&amp;</span>Carine</h1>
-      <p class="hero-loc">August 1, 2026 &nbsp;&bull;&nbsp; Araya, Lebanon</p>
-      <a href="#our-day" class="hero-btn">Scroll for more &#8595;</a>
+  <section id="splash">
+    <div class="sp-mono">
+      <img src="./logo.png" alt="Tony &amp; Carine monogram" style="width:100%;height:100%;object-fit:contain;" />
     </div>
+    <p class="sp-invite">You are invited to celebrate the wedding of</p>
+    <p class="sp-names">Tony <span class="sp-amp">&amp;</span> Carine</p>
+    <p class="sp-date">August 1, 2026 &nbsp;&bull;&nbsp; Araya, Lebanon</p>
+    
+    <button class="tap-btn" id="tap-start">View Our Day</button>
   </section>
 
   <!-- <section id="info-strip">
@@ -570,7 +491,7 @@
         <!-- <span class="lbl">We&rsquo;re Getting Married</span> -->
         <h2 class="sec-title">Our Day</h2>
         <div class="rule"></div>
-        <p class="day-quote">We can&rsquo;t wait to share every moment of it with you.</p>
+        <p class="day-quote">Our hearts have chosen to walk this beautiful journey as one, and we would be honored to begin it with you by our side.</p>
       </div>
       <div class="timeline">
 
@@ -685,7 +606,8 @@
       <div class="rule"></div>
       <p class="gift-text">Your presence is the greatest gift of all. Should you wish to honor us with something more, a contribution to our future together is warmly appreciated.</p>
       <p class="gift-text" style="font-size:clamp(0.85rem,2.2vw,0.98rem);color:var(--text);line-height:2;">
-        IBAN: XXXXX<br>SWIFT: XXXXX
+        Emirates NBD:
+IBAN: AE620260001105796015101<br>Whish : 31421760-03
       </p>
     </div>
   </section>
@@ -724,9 +646,8 @@
   <footer>
     <img src="./logo-white.png" alt="Tony &amp; Carine" style="width:80px;height:80px;object-fit:contain;opacity:0.92;margin-bottom:0.7rem;" />
 
-    <div class="ft-date">August 1, 2026</div>
-    <div class="ft-loc">Araya &amp; Bhamdoun, Lebanon</div>
-    <div class="ft-thanks">Thank you for being part of our story.</div>
+
+    <div class="ft-thanks">Thank you for being part of our story</div>
   </footer>
 
 </div>
@@ -761,18 +682,12 @@
 </nav>
 
 <script>
-  /* splash */
-  document.documentElement.classList.add('locked');
-  document.body.classList.add('locked');
+  /* splash CTA: start music and scroll to first section */
   document.getElementById('tap-start').addEventListener('click', function () {
-    document.getElementById('splash').classList.add('hidden');
-    document.getElementById('story').classList.add('visible');
-    document.documentElement.classList.remove('locked');
-    document.body.classList.remove('locked');
     var music = document.getElementById('bg-music');
     music.volume = 0.4;
     music.play().catch(function () {});
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.getElementById('our-day').scrollIntoView({ behavior: 'smooth' });
   });
 
   /* char counter */
