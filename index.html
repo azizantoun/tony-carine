@@ -83,9 +83,15 @@
     #splash > * { position: relative; z-index: 1; }
 
     .sp-mono {
-      width: clamp(180px, 50vw, 240px);
-      height: clamp(180px, 50vw, 240px);
+      width: clamp(220px, 70vw, 280px);
+      height: clamp(220px, 70vw, 280px);
       margin-bottom: 1.6rem;
+    }
+    @media (min-width: 768px) {
+      .sp-mono {
+        width: clamp(220px, 30vw, 280px);
+        height: clamp(220px, 30vw, 280px);
+      }
     }
     .sp-invite {
       font-family: 'Cormorant Garamond', serif;
@@ -122,8 +128,20 @@
       font-weight: 500;
       letter-spacing: 0.22em; cursor: pointer;
       transition: background 0.2s;
+      display: inline-flex; align-items: center; gap: 0.7rem;
     }
     .tap-btn:hover { background: var(--accent2); }
+    .tap-btn .tap-arrow {
+      width: 14px; height: 14px;
+      animation: tapBounce 1.6s ease-in-out infinite;
+    }
+    @keyframes tapBounce {
+      0%, 100% { transform: translateY(0); opacity: 0.85; }
+      50%      { transform: translateY(5px); opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tap-btn .tap-arrow { animation: none; }
+    }
 
     .sec {
       width: 100%; max-width: 680px;
@@ -445,7 +463,13 @@
     <p class="sp-names">Tony <span class="sp-amp">&amp;</span> Carine</p>
     <p class="sp-date">August 1, 2026 &nbsp;&bull;&nbsp; Araya, Lebanon</p>
     
-    <button class="tap-btn" id="tap-start">View Our Day</button>
+    <button class="tap-btn" id="tap-start">
+      <span>View Our Day</span>
+      <svg class="tap-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="5" x2="12" y2="19"/>
+        <polyline points="6 13 12 19 18 13"/>
+      </svg>
+    </button>
   </section>
 
   <!-- <section id="info-strip">
@@ -515,7 +539,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l3 3"/></svg>
           </div>
           <div class="tl-content-right">
-            <span class="tl-time">5:00 PM</span>
+            <span class="tl-time">3:00 PM</span>
             <div class="tl-event">Groom&rsquo;s Gathering</div>
             <div class="tl-place">At the Antoun Family Home</div>
           </div>
