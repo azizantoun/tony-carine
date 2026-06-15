@@ -82,6 +82,10 @@
       background: url('./header-background.jpg') center/cover no-repeat;
     }
 
+    /* scrolling stays locked on the splash until the guest taps "View Our Day" */
+    body.locked { overflow: hidden; }
+    body.locked #bottom-nav { display: none; }
+
     #splash > * { position: relative; z-index: 1; }
 
     .sp-mono {
@@ -489,7 +493,7 @@
     }
   </style>
 </head>
-<body>
+<body class="locked">
 
 <div id="petals"></div>
 <audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
@@ -702,7 +706,7 @@
         <button type="submit" class="subbtn" id="subbtn">Send RSVP</button>
       </form>
       <div id="rsuccess">
-        <p>Thank you! We have received your RSVP<br>and can&rsquo;t wait to celebrate with you.</p>
+        <p>Thank you! We have received your RSVP</p>
       </div>
     </div>
   </section>
@@ -756,13 +760,25 @@
 </nav>
 
 <script>
-  /* splash CTA: start music and scroll to first section */
-  document.getElementById('tap-start').addEventListener('click', function () {
+  /* splash gate: the page stays locked on the first screen until the guest taps
+     "View Our Day". That tap is a real user gesture, so the music starts
+     reliably, the scroll lock is released, and the page scrolls down to the next
+     section. The splash stays in place — guests can scroll back up to it. */
+  (function () {
     var music = document.getElementById('bg-music');
     music.volume = 0.4;
-    music.play().catch(function () {});
-    document.getElementById('our-day').scrollIntoView({ behavior: 'smooth' });
-  });
+
+    // hard-block touch scrolling on mobile while the splash is locked
+    function blockTouch(e) { e.preventDefault(); }
+    document.addEventListener('touchmove', blockTouch, { passive: false });
+
+    document.getElementById('tap-start').addEventListener('click', function () {
+      music.play().catch(function () {});                  // gesture → music plays
+      document.removeEventListener('touchmove', blockTouch, { passive: false });
+      document.body.classList.remove('locked');            // release the scroll lock
+      document.getElementById('our-day').scrollIntoView({ behavior: 'smooth' });
+    });
+  })();
 
   /* char counter */
   document.getElementById('wishes').addEventListener('input', function () {
@@ -855,6 +871,14 @@
       Promise.all(submissions)
         .then(function () {
           form.style.display = 'none';
+          // hide the "Kindly Respond By…" label, the "RSVP" heading and the subtext
+          var rsvpSection = document.getElementById('rsvp');
+          var label = rsvpSection.querySelector('.lbl');
+          var title = rsvpSection.querySelector('.sec-title');
+          var sub = rsvpSection.querySelector('.sec-sub');
+          if (label) label.style.display = 'none';
+          if (title) title.style.display = 'none';
+          if (sub) sub.style.display = 'none';
           document.getElementById('rsuccess').classList.add('visible');
         })
         .catch(function () {
