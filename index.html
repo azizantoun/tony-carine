@@ -6,6 +6,7 @@
   <title>Tony &amp; Carine — August 1, 2026</title>
   <meta name="description" content="You are invited to celebrate the wedding of Tony &amp; Carine on August 1, 2026 in Araya &amp; Bhamdoun, Lebanon." />
   <meta name="theme-color" content="#c87a5e" />
+  <meta name="format-detection" content="telephone=no" />
 
   <!-- Open Graph / Facebook / WhatsApp -->
   <meta property="og:type" content="website" />
@@ -324,22 +325,21 @@
     }
     .iban-currency {
       font-family: 'News Gothic MT', Arial, sans-serif;
-      font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+      font-size: clamp(0.7rem, 1.5vw, 0.7rem);
       letter-spacing: 0.22em; font-weight: 500;
       color: var(--accent); margin-bottom: 0.5rem;
     }
     .iban-bank {
       font-family: 'Abhaya Libre', serif;
-      font-size: clamp(0.85rem, 2.2vw, 1rem);
+      font-size: clamp(0.95rem, 2.2vw, 1rem);
       font-weight: 400; color: var(--text);
       margin-bottom: 0.4rem;
     }
     .iban-number {
       font-family: 'News Gothic MT', Arial, sans-serif;
-      font-size: clamp(0.55rem, 1.4vw, 0.65rem);
+      font-size: clamp(0.75rem, 1.4vw, 0.65rem);
       letter-spacing: 0.1em; font-weight: 400;
       color: var(--muted); line-height: 1.6;
-      word-break: break-all;
     }
     .gift-icon { margin-bottom: 1.2rem; color: var(--accent); }
     .gift-icon svg { width: 36px; height: 36px; }
@@ -762,8 +762,27 @@
   /* RSVP: build guest rows from URL params and submit each separately */
   (function () {
     var ENDPOINT = 'https://script.google.com/macros/s/AKfycbz5MzuK6JtfmmVJip3ZPHfwbvMBgrY72rMQhffZ18m95uPaKXYOz1fQ063xnrjt0g34mA/exec';
-    var params = new URLSearchParams(window.location.search);
-    var names = [params.get('name'), params.get('name2')].filter(Boolean);
+    function parseNames() {
+      var raw = window.location.search.slice(1);
+      if (!raw) return [];
+      try {
+        var b64 = decodeURIComponent(raw).replace(/-/g, '+').replace(/_/g, '/');
+        while (b64.length % 4) b64 += '='; // restore stripped padding
+        var decoded = atob(b64);
+        // Short format: "Name1" or "Name1|Name2"
+        if (decoded.indexOf('=') === -1) {
+          return decoded.split('|').map(function(s) { return s.trim(); }).filter(Boolean);
+        }
+        // Legacy format: "name=X&name2=Y"
+        var p = new URLSearchParams(decoded);
+        var n = [p.get('name'), p.get('name2')].filter(Boolean);
+        if (n.length) return n;
+      } catch (e) {}
+      // Plain text fallback: ?name=Tony&name2=Carine
+      var params = new URLSearchParams(window.location.search);
+      return [params.get('name'), params.get('name2')].filter(Boolean);
+    }
+    var names = parseNames();
     var container = document.getElementById('rsvp-guests');
 
     function esc(s) {
