@@ -340,6 +340,16 @@
       font-size: clamp(0.75rem, 1.4vw, 0.65rem);
       letter-spacing: 0.1em; font-weight: 400;
       color: var(--muted); line-height: 1.6;
+      word-break: break-all;
+    }
+    .iban-number a {
+      color: inherit !important;
+      text-decoration: none !important;
+      pointer-events: none;
+    }
+    @media (max-width: 560px) {
+      .iban-grid { flex-direction: column; }
+      .iban-divider { width: 100%; height: 1px; }
     }
     .gift-icon { margin-bottom: 1.2rem; color: var(--accent); }
     .gift-icon svg { width: 36px; height: 36px; }
@@ -761,7 +771,7 @@
 
   /* RSVP: build guest rows from URL params and submit each separately */
   (function () {
-    var ENDPOINT = 'https://script.google.com/macros/s/AKfycbz5MzuK6JtfmmVJip3ZPHfwbvMBgrY72rMQhffZ18m95uPaKXYOz1fQ063xnrjt0g34mA/exec';
+    var ENDPOINT = 'https://script.google.com/macros/s/AKfycbz3TJYauWWPsV8YbFTS7ldwpr_hZM9S9zYB49y9Vmcy06xobWwnvYZSZezfZef4hIotXA/exec';
     function parseNames() {
       var raw = window.location.search.slice(1);
       if (!raw) return [];
